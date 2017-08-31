@@ -1,5 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `recruiter` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `recruiter`;
+-- CREATE DATABASE  IF NOT EXISTS `recruiter` /*!40100 DEFAULT CHARACTER SET latin1 */;
+-- USE `recruiter`;
 -- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
 -- Host: localhost    Database: recruiter

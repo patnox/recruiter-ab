@@ -1,0 +1,790 @@
+2017-08-28 01:27:36 [-][-][-][error][yii\db\Exception] PDOException: SQLSTATE[42000]: Syntax error or access violation: 1091 Can't DROP 'fk_profile_language_profile'; check that column/key exists in C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Command.php:842
+Stack trace:
+#0 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Command.php(842): PDOStatement->execute()
+#1 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Migration.php(455): yii\db\Command->execute()
+#2 C:\Apache24\htdocs\multisys\erp\17\console\migrations\m170827_151435_create_profile_language_table.php(30): yii\db\Migration->dropForeignKey('fk_profile_lang...', 'profile_languag...')
+#3 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(699): m170827_151435_create_profile_language_table->down()
+#4 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(305): yii\console\controllers\BaseMigrateController->migrateDown('m170827_151435_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionRedo(100)
+#6 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#7 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#8 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Controller.php(128): yii\base\Controller->runAction('redo', Array)
+#9 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Module.php(523): yii\console\Controller->runAction('redo', Array)
+#10 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('migrate/redo', Array)
+#11 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('migrate/redo', Array)
+#12 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 C:\Apache24\htdocs\multisys\erp\17\yii(27): yii\base\Application->run()
+#14 {main}
+
+Next yii\db\Exception: SQLSTATE[42000]: Syntax error or access violation: 1091 Can't DROP 'fk_profile_language_profile'; check that column/key exists
+The SQL being executed was: ALTER TABLE `profile_language` DROP FOREIGN KEY `fk_profile_language_profile` in C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Schema.php:636
+Stack trace:
+#0 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Command.php(852): yii\db\Schema->convertException(Object(PDOException), 'ALTER TABLE `pr...')
+#1 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Migration.php(455): yii\db\Command->execute()
+#2 C:\Apache24\htdocs\multisys\erp\17\console\migrations\m170827_151435_create_profile_language_table.php(30): yii\db\Migration->dropForeignKey('fk_profile_lang...', 'profile_languag...')
+#3 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(699): m170827_151435_create_profile_language_table->down()
+#4 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(305): yii\console\controllers\BaseMigrateController->migrateDown('m170827_151435_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionRedo(100)
+#6 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#7 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#8 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Controller.php(128): yii\base\Controller->runAction('redo', Array)
+#9 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Module.php(523): yii\console\Controller->runAction('redo', Array)
+#10 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('migrate/redo', Array)
+#11 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('migrate/redo', Array)
+#12 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 C:\Apache24\htdocs\multisys\erp\17\yii(27): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => 42000
+    [1] => 1091
+    [2] => Can't DROP 'fk_profile_language_profile'; check that column/key exists
+)
+
+2017-08-28 01:27:19 [-][-][-][info][application] $_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'AMDAPPSDKROOT' => 'C:\\Program Files (x86)\\AMD APP SDK\\2.9-1\\'
+    'ANT_HOME' => 'c:\\ant'
+    'APPDATA' => 'C:\\Users\\Administrator\\AppData\\Roaming'
+    'AVR32_HOME' => 'C:\\WinAVR-20100110'
+    'CLASSPATH' => 'C:\\BerkeleyDB.11gR2-5.3.28\\jar\\db.jar;C:\\BerkeleyDB.11gR2-5.3.28\\jar\\jdbc.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\slf4j-log4j12.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\slf4j-api.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\log4j.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\libthrift.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db_thrift_interface.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db_thrift_client.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db_thrift_server.jar'
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'TERROR'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'CUDDLEFISH_ROOT' => 'O:\\app\\firefox-dev\\addon-sdk-1.17'
+    'CYGWIN' => 'mintty'
+    'FP_NO_HOST_CHECK' => 'NO'
+    'GDAL_DATA' => 'C:\\Program Files (x86)\\GDAL\\gdal-data'
+    'HOMEDRIVE' => 'C:'
+    'HOMEPATH' => '\\Users\\Administrator'
+    'JAVA_HOME' => 'C:\\jdk1.8.0_131'
+    'LANG' => 'en'
+    'LOCALAPPDATA' => 'C:\\Users\\Administrator\\AppData\\Local'
+    'LOGONSERVER' => '\\\\TERROR'
+    'MYSQL_PATH' => 'C:\\MySQL\\connector\\'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OPENSSL_CONF' => 'C:\\OpenSSL-Win32\\bin\\openssl.cfg'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\virtualbox;C:\\GPG;C:\\php;C:\\php\\ext;C:\\msys2\\mingw32\\bin;C:\\mingw\\bin;C:\\OpenSSL-Win64\\bin;C:\\OpenSSL-Win32\\bin;c:\\windows\\system32;C:\\Python27-64bit;C:\\ant\\bin;C:\\Python27-64bit\\Scripts;C:\\NetBeans7.3.1\\java\\maven\\bin;C:\\MySQL\\connector\\lib;C:\\MySQL\\connector\\include;C:\\MySQL\\mysql-5.7.17-winx64\\lib;C:\\MySQL\\mysql-5.7.17-winx64\\include;C:\\MySQL\\mysql-5.7.17-winx64\\bin;C:\\Qt\\Qt5.8.0\\Tools\\mingw530_32\\opt\\bin;C:\\Qt\\Qt5.8.0\\Tools\\mingw530_32\\bin;C:\\Qt\\Qt5.8.0\\5.8\\mingw53_32\\plugins\\sqldrivers;C:\\Qt\\Qt5.8.0\\5.8\\mingw53_32\\bin;C:\\Qt\\Qt5.8.0\\Tools\\QtCreator\\bin;C:\\MySQL\\mysql-5.7.17-winx64\\bin;C:\\MySQLutils;C:\\Windows\\twain_32\\CNQL60;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\CMake\\bin;C:\\Python27;O:\\app\\firefox-dev\\addon-sdk-1.17\\bin;C:\\Android\\android-studio\\sdk\\platform-tools;C:\\Perl\\bin;C:\\OpenSSL-Win32\\bin;C:\\Perl\\site\\bin;C:\\Perl\\bin;C:\\MinGW\\bin;C:\\Qt\\4.8.6\\bin;C:\\OpenSSH\\bin;C:\\Windows\\twain_32\\CNQL60;C:\\ffmpeg-20170123-e371f03-win64-static\\bin;C:\\Git\\cmd;C:\\Git\\mingw64\\bin;C:\\Git\\usr\\bin;C:\\MySQLutils\\;C:\\MySQLutils;;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\GPG\\pub;C:\\BerkeleyDB.11gR2-5.3.28\\bin;C:\\Calibre2\\;C:\\Android\\android-sdk\\platform-tools;C:\\MIT-Scheme\\bin;C:\\nodejs\\;C:\\MongoDB\\bin;\"C:\\AMD\\AMD APP SDK\\2.9-1\\bin\\x86_64\";\"C:\\AMD\\AMD APP SDK\\2.9-1\\bin\\x86\";\"C:\\Program Files (x86)\\AMD APP SDK\\2.9-1\\bin\\x86_64\";\"C:\\Program Files (x86)\\AMD APP SDK\\2.9-1\\bin\\x86\";C:\\Python27\\;C:\\Python27\\Scripts;C:\\Python27;C:\\jdk1.7.0_25\\jre\\bin;C:\\jdk1.7.0_25\\bin;C:\\Program Files (x86)\\AMD APP\\bin\\x86_64;C:\\Program Files (x86)\\AMD APP\\bin\\x86;c:\\Program Files (x86)\\Intel\\iCLS Client\\;c:\\Program Files\\Intel\\iCLS Client\\;C:\\Program Files (x86)\\PC Connectivity Solution\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Hewlett-Packard\\HP ProtectTools Security Manager\\Bin\\;C:\\Program Files\\TortoiseSVN\\bin;C:\\MySQL\\MySQL Server 5.5\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Python\\Scripts;C:\\Program Files (x86)\\CVSNT\\;C:\\ffmpeg-20170123-e371f03-win64-static\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\npm'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.py;.pyw'
+    'PHPBIN' => 'C:\\php\\php.exe'
+    'PROCESSOR_ARCHITECTURE' => 'x86'
+    'PROCESSOR_ARCHITEW6432' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 37 Stepping 5, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '2505'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files (x86)'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PROMPT' => '$P$G'
+    'PSModulePath' => 'C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules'
+    'PTSMInstallPath_X86' => 'C:\\Program Files (x86)\\Hewlett-Packard\\HP ProtectTools Security Manager\\'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'PYTHONPATH' => 'O:\\app\\firefox-dev\\addon-sdk-1.17\\python-lib'
+    'QT_INSTALL_PREFIX' => 'C:\\Qt\\Static\\5.8.0\\'
+    'SESSIONNAME' => 'Console'
+    'SSL_CERT_DIR' => 'C:\\OpenSSL-Win32\\bin\\PEM'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\Windows'
+    'TEMP' => 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp'
+    'USERDOMAIN' => 'terror'
+    'USERNAME' => 'Administrator'
+    'USERPROFILE' => 'C:\\Users\\Administrator'
+    'VBOX_INSTALL_PATH' => 'C:\\virtualbox\\'
+    'VIRTUAL_ENV' => 'O:\\app\\firefox-dev\\addon-sdk-1.17'
+    'windir' => 'C:\\Windows'
+    'windows_tracing_flags' => '3'
+    'windows_tracing_logfile' => 'C:\\BVTBin\\Tests\\installpackage\\csilogfile.log'
+    'PHP_SELF' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'SCRIPT_NAME' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'SCRIPT_FILENAME' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'PATH_TRANSLATED' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1503872839.2996
+    'REQUEST_TIME' => 1503872839
+    'argv' => [
+        0 => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+        1 => 'migrate/redo'
+        2 => '100'
+    ]
+    'argc' => 3
+]
+2017-08-28 01:29:19 [-][-][-][error][yii\db\Exception] PDOException: SQLSTATE[42000]: Syntax error or access violation: 1170 BLOB/TEXT column 'description' used in key specification without a key length in C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Command.php:842
+Stack trace:
+#0 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Command.php(842): PDOStatement->execute()
+#1 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Migration.php(472): yii\db\Command->execute()
+#2 C:\Apache24\htdocs\multisys\erp\17\console\migrations\m170827_150023_create_profile_table.php(24): yii\db\Migration->createIndex('profile_index', 'profile', Array)
+#3 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(671): m170827_150023_create_profile_table->up()
+#4 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(183): yii\console\controllers\BaseMigrateController->migrateUp('m170827_150023_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#7 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#8 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Controller.php(128): yii\base\Controller->runAction('up', Array)
+#9 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Module.php(523): yii\console\Controller->runAction('up', Array)
+#10 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('migrate/up', Array)
+#11 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('migrate/up', Array)
+#12 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 C:\Apache24\htdocs\multisys\erp\17\yii(27): yii\base\Application->run()
+#14 {main}
+
+Next yii\db\Exception: SQLSTATE[42000]: Syntax error or access violation: 1170 BLOB/TEXT column 'description' used in key specification without a key length
+The SQL being executed was: ALTER TABLE `profile` ADD INDEX `profile_index` (`user_id`, `country_id`, `dob`, `expected_salary`, `description`) in C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Schema.php:636
+Stack trace:
+#0 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Command.php(852): yii\db\Schema->convertException(Object(PDOException), 'ALTER TABLE `pr...')
+#1 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Migration.php(472): yii\db\Command->execute()
+#2 C:\Apache24\htdocs\multisys\erp\17\console\migrations\m170827_150023_create_profile_table.php(24): yii\db\Migration->createIndex('profile_index', 'profile', Array)
+#3 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(671): m170827_150023_create_profile_table->up()
+#4 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(183): yii\console\controllers\BaseMigrateController->migrateUp('m170827_150023_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#7 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#8 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Controller.php(128): yii\base\Controller->runAction('up', Array)
+#9 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Module.php(523): yii\console\Controller->runAction('up', Array)
+#10 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('migrate/up', Array)
+#11 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('migrate/up', Array)
+#12 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 C:\Apache24\htdocs\multisys\erp\17\yii(27): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => 42000
+    [1] => 1170
+    [2] => BLOB/TEXT column 'description' used in key specification without a key length
+)
+
+2017-08-28 01:29:15 [-][-][-][info][application] $_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'AMDAPPSDKROOT' => 'C:\\Program Files (x86)\\AMD APP SDK\\2.9-1\\'
+    'ANT_HOME' => 'c:\\ant'
+    'APPDATA' => 'C:\\Users\\Administrator\\AppData\\Roaming'
+    'AVR32_HOME' => 'C:\\WinAVR-20100110'
+    'CLASSPATH' => 'C:\\BerkeleyDB.11gR2-5.3.28\\jar\\db.jar;C:\\BerkeleyDB.11gR2-5.3.28\\jar\\jdbc.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\slf4j-log4j12.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\slf4j-api.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\log4j.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\libthrift.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db_thrift_interface.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db_thrift_client.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db_thrift_server.jar'
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'TERROR'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'CUDDLEFISH_ROOT' => 'O:\\app\\firefox-dev\\addon-sdk-1.17'
+    'CYGWIN' => 'mintty'
+    'FP_NO_HOST_CHECK' => 'NO'
+    'GDAL_DATA' => 'C:\\Program Files (x86)\\GDAL\\gdal-data'
+    'HOMEDRIVE' => 'C:'
+    'HOMEPATH' => '\\Users\\Administrator'
+    'JAVA_HOME' => 'C:\\jdk1.8.0_131'
+    'LANG' => 'en'
+    'LOCALAPPDATA' => 'C:\\Users\\Administrator\\AppData\\Local'
+    'LOGONSERVER' => '\\\\TERROR'
+    'MYSQL_PATH' => 'C:\\MySQL\\connector\\'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OPENSSL_CONF' => 'C:\\OpenSSL-Win32\\bin\\openssl.cfg'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\virtualbox;C:\\GPG;C:\\php;C:\\php\\ext;C:\\msys2\\mingw32\\bin;C:\\mingw\\bin;C:\\OpenSSL-Win64\\bin;C:\\OpenSSL-Win32\\bin;c:\\windows\\system32;C:\\Python27-64bit;C:\\ant\\bin;C:\\Python27-64bit\\Scripts;C:\\NetBeans7.3.1\\java\\maven\\bin;C:\\MySQL\\connector\\lib;C:\\MySQL\\connector\\include;C:\\MySQL\\mysql-5.7.17-winx64\\lib;C:\\MySQL\\mysql-5.7.17-winx64\\include;C:\\MySQL\\mysql-5.7.17-winx64\\bin;C:\\Qt\\Qt5.8.0\\Tools\\mingw530_32\\opt\\bin;C:\\Qt\\Qt5.8.0\\Tools\\mingw530_32\\bin;C:\\Qt\\Qt5.8.0\\5.8\\mingw53_32\\plugins\\sqldrivers;C:\\Qt\\Qt5.8.0\\5.8\\mingw53_32\\bin;C:\\Qt\\Qt5.8.0\\Tools\\QtCreator\\bin;C:\\MySQL\\mysql-5.7.17-winx64\\bin;C:\\MySQLutils;C:\\Windows\\twain_32\\CNQL60;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\CMake\\bin;C:\\Python27;O:\\app\\firefox-dev\\addon-sdk-1.17\\bin;C:\\Android\\android-studio\\sdk\\platform-tools;C:\\Perl\\bin;C:\\OpenSSL-Win32\\bin;C:\\Perl\\site\\bin;C:\\Perl\\bin;C:\\MinGW\\bin;C:\\Qt\\4.8.6\\bin;C:\\OpenSSH\\bin;C:\\Windows\\twain_32\\CNQL60;C:\\ffmpeg-20170123-e371f03-win64-static\\bin;C:\\Git\\cmd;C:\\Git\\mingw64\\bin;C:\\Git\\usr\\bin;C:\\MySQLutils\\;C:\\MySQLutils;;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\GPG\\pub;C:\\BerkeleyDB.11gR2-5.3.28\\bin;C:\\Calibre2\\;C:\\Android\\android-sdk\\platform-tools;C:\\MIT-Scheme\\bin;C:\\nodejs\\;C:\\MongoDB\\bin;\"C:\\AMD\\AMD APP SDK\\2.9-1\\bin\\x86_64\";\"C:\\AMD\\AMD APP SDK\\2.9-1\\bin\\x86\";\"C:\\Program Files (x86)\\AMD APP SDK\\2.9-1\\bin\\x86_64\";\"C:\\Program Files (x86)\\AMD APP SDK\\2.9-1\\bin\\x86\";C:\\Python27\\;C:\\Python27\\Scripts;C:\\Python27;C:\\jdk1.7.0_25\\jre\\bin;C:\\jdk1.7.0_25\\bin;C:\\Program Files (x86)\\AMD APP\\bin\\x86_64;C:\\Program Files (x86)\\AMD APP\\bin\\x86;c:\\Program Files (x86)\\Intel\\iCLS Client\\;c:\\Program Files\\Intel\\iCLS Client\\;C:\\Program Files (x86)\\PC Connectivity Solution\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Hewlett-Packard\\HP ProtectTools Security Manager\\Bin\\;C:\\Program Files\\TortoiseSVN\\bin;C:\\MySQL\\MySQL Server 5.5\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Python\\Scripts;C:\\Program Files (x86)\\CVSNT\\;C:\\ffmpeg-20170123-e371f03-win64-static\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\npm'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.py;.pyw'
+    'PHPBIN' => 'C:\\php\\php.exe'
+    'PROCESSOR_ARCHITECTURE' => 'x86'
+    'PROCESSOR_ARCHITEW6432' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 37 Stepping 5, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '2505'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files (x86)'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PROMPT' => '$P$G'
+    'PSModulePath' => 'C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules'
+    'PTSMInstallPath_X86' => 'C:\\Program Files (x86)\\Hewlett-Packard\\HP ProtectTools Security Manager\\'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'PYTHONPATH' => 'O:\\app\\firefox-dev\\addon-sdk-1.17\\python-lib'
+    'QT_INSTALL_PREFIX' => 'C:\\Qt\\Static\\5.8.0\\'
+    'SESSIONNAME' => 'Console'
+    'SSL_CERT_DIR' => 'C:\\OpenSSL-Win32\\bin\\PEM'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\Windows'
+    'TEMP' => 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp'
+    'USERDOMAIN' => 'terror'
+    'USERNAME' => 'Administrator'
+    'USERPROFILE' => 'C:\\Users\\Administrator'
+    'VBOX_INSTALL_PATH' => 'C:\\virtualbox\\'
+    'VIRTUAL_ENV' => 'O:\\app\\firefox-dev\\addon-sdk-1.17'
+    'windir' => 'C:\\Windows'
+    'windows_tracing_flags' => '3'
+    'windows_tracing_logfile' => 'C:\\BVTBin\\Tests\\installpackage\\csilogfile.log'
+    'PHP_SELF' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'SCRIPT_NAME' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'SCRIPT_FILENAME' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'PATH_TRANSLATED' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1503872955.8022
+    'REQUEST_TIME' => 1503872955
+    'argv' => [
+        0 => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+        1 => 'migrate/up'
+    ]
+    'argc' => 2
+]
+2017-08-28 01:32:37 [-][-][-][error][yii\db\Exception] PDOException: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'profile' already exists in C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Command.php:842
+Stack trace:
+#0 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Command.php(842): PDOStatement->execute()
+#1 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Migration.php(288): yii\db\Command->execute()
+#2 C:\Apache24\htdocs\multisys\erp\17\console\migrations\m170827_150023_create_profile_table.php(21): yii\db\Migration->createTable('profile', Array)
+#3 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(671): m170827_150023_create_profile_table->up()
+#4 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(183): yii\console\controllers\BaseMigrateController->migrateUp('m170827_150023_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#7 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#8 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Controller.php(128): yii\base\Controller->runAction('up', Array)
+#9 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Module.php(523): yii\console\Controller->runAction('up', Array)
+#10 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('migrate/up', Array)
+#11 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('migrate/up', Array)
+#12 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 C:\Apache24\htdocs\multisys\erp\17\yii(27): yii\base\Application->run()
+#14 {main}
+
+Next yii\db\Exception: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'profile' already exists
+The SQL being executed was: CREATE TABLE `profile` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`user_id` int(11) NOT NULL,
+	`country_id` int(11) NOT NULL,
+	`dob` datetime NOT NULL,
+	`expected_salary` int(11) NOT NULL,
+	`description` text NOT NULL
+) in C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Schema.php:636
+Stack trace:
+#0 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Command.php(852): yii\db\Schema->convertException(Object(PDOException), 'CREATE TABLE `p...')
+#1 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Migration.php(288): yii\db\Command->execute()
+#2 C:\Apache24\htdocs\multisys\erp\17\console\migrations\m170827_150023_create_profile_table.php(21): yii\db\Migration->createTable('profile', Array)
+#3 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(671): m170827_150023_create_profile_table->up()
+#4 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(183): yii\console\controllers\BaseMigrateController->migrateUp('m170827_150023_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#7 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#8 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Controller.php(128): yii\base\Controller->runAction('up', Array)
+#9 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Module.php(523): yii\console\Controller->runAction('up', Array)
+#10 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('migrate/up', Array)
+#11 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('migrate/up', Array)
+#12 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 C:\Apache24\htdocs\multisys\erp\17\yii(27): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => 42S01
+    [1] => 1050
+    [2] => Table 'profile' already exists
+)
+
+2017-08-28 01:32:33 [-][-][-][info][application] $_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'AMDAPPSDKROOT' => 'C:\\Program Files (x86)\\AMD APP SDK\\2.9-1\\'
+    'ANT_HOME' => 'c:\\ant'
+    'APPDATA' => 'C:\\Users\\Administrator\\AppData\\Roaming'
+    'AVR32_HOME' => 'C:\\WinAVR-20100110'
+    'CLASSPATH' => 'C:\\BerkeleyDB.11gR2-5.3.28\\jar\\db.jar;C:\\BerkeleyDB.11gR2-5.3.28\\jar\\jdbc.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\slf4j-log4j12.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\slf4j-api.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\log4j.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\libthrift.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db_thrift_interface.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db_thrift_client.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db_thrift_server.jar'
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'TERROR'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'CUDDLEFISH_ROOT' => 'O:\\app\\firefox-dev\\addon-sdk-1.17'
+    'CYGWIN' => 'mintty'
+    'FP_NO_HOST_CHECK' => 'NO'
+    'GDAL_DATA' => 'C:\\Program Files (x86)\\GDAL\\gdal-data'
+    'HOMEDRIVE' => 'C:'
+    'HOMEPATH' => '\\Users\\Administrator'
+    'JAVA_HOME' => 'C:\\jdk1.8.0_131'
+    'LANG' => 'en'
+    'LOCALAPPDATA' => 'C:\\Users\\Administrator\\AppData\\Local'
+    'LOGONSERVER' => '\\\\TERROR'
+    'MYSQL_PATH' => 'C:\\MySQL\\connector\\'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OPENSSL_CONF' => 'C:\\OpenSSL-Win32\\bin\\openssl.cfg'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\virtualbox;C:\\GPG;C:\\php;C:\\php\\ext;C:\\msys2\\mingw32\\bin;C:\\mingw\\bin;C:\\OpenSSL-Win64\\bin;C:\\OpenSSL-Win32\\bin;c:\\windows\\system32;C:\\Python27-64bit;C:\\ant\\bin;C:\\Python27-64bit\\Scripts;C:\\NetBeans7.3.1\\java\\maven\\bin;C:\\MySQL\\connector\\lib;C:\\MySQL\\connector\\include;C:\\MySQL\\mysql-5.7.17-winx64\\lib;C:\\MySQL\\mysql-5.7.17-winx64\\include;C:\\MySQL\\mysql-5.7.17-winx64\\bin;C:\\Qt\\Qt5.8.0\\Tools\\mingw530_32\\opt\\bin;C:\\Qt\\Qt5.8.0\\Tools\\mingw530_32\\bin;C:\\Qt\\Qt5.8.0\\5.8\\mingw53_32\\plugins\\sqldrivers;C:\\Qt\\Qt5.8.0\\5.8\\mingw53_32\\bin;C:\\Qt\\Qt5.8.0\\Tools\\QtCreator\\bin;C:\\MySQL\\mysql-5.7.17-winx64\\bin;C:\\MySQLutils;C:\\Windows\\twain_32\\CNQL60;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\CMake\\bin;C:\\Python27;O:\\app\\firefox-dev\\addon-sdk-1.17\\bin;C:\\Android\\android-studio\\sdk\\platform-tools;C:\\Perl\\bin;C:\\OpenSSL-Win32\\bin;C:\\Perl\\site\\bin;C:\\Perl\\bin;C:\\MinGW\\bin;C:\\Qt\\4.8.6\\bin;C:\\OpenSSH\\bin;C:\\Windows\\twain_32\\CNQL60;C:\\ffmpeg-20170123-e371f03-win64-static\\bin;C:\\Git\\cmd;C:\\Git\\mingw64\\bin;C:\\Git\\usr\\bin;C:\\MySQLutils\\;C:\\MySQLutils;;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\GPG\\pub;C:\\BerkeleyDB.11gR2-5.3.28\\bin;C:\\Calibre2\\;C:\\Android\\android-sdk\\platform-tools;C:\\MIT-Scheme\\bin;C:\\nodejs\\;C:\\MongoDB\\bin;\"C:\\AMD\\AMD APP SDK\\2.9-1\\bin\\x86_64\";\"C:\\AMD\\AMD APP SDK\\2.9-1\\bin\\x86\";\"C:\\Program Files (x86)\\AMD APP SDK\\2.9-1\\bin\\x86_64\";\"C:\\Program Files (x86)\\AMD APP SDK\\2.9-1\\bin\\x86\";C:\\Python27\\;C:\\Python27\\Scripts;C:\\Python27;C:\\jdk1.7.0_25\\jre\\bin;C:\\jdk1.7.0_25\\bin;C:\\Program Files (x86)\\AMD APP\\bin\\x86_64;C:\\Program Files (x86)\\AMD APP\\bin\\x86;c:\\Program Files (x86)\\Intel\\iCLS Client\\;c:\\Program Files\\Intel\\iCLS Client\\;C:\\Program Files (x86)\\PC Connectivity Solution\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Hewlett-Packard\\HP ProtectTools Security Manager\\Bin\\;C:\\Program Files\\TortoiseSVN\\bin;C:\\MySQL\\MySQL Server 5.5\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Python\\Scripts;C:\\Program Files (x86)\\CVSNT\\;C:\\ffmpeg-20170123-e371f03-win64-static\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\npm'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.py;.pyw'
+    'PHPBIN' => 'C:\\php\\php.exe'
+    'PROCESSOR_ARCHITECTURE' => 'x86'
+    'PROCESSOR_ARCHITEW6432' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 37 Stepping 5, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '2505'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files (x86)'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PROMPT' => '$P$G'
+    'PSModulePath' => 'C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules'
+    'PTSMInstallPath_X86' => 'C:\\Program Files (x86)\\Hewlett-Packard\\HP ProtectTools Security Manager\\'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'PYTHONPATH' => 'O:\\app\\firefox-dev\\addon-sdk-1.17\\python-lib'
+    'QT_INSTALL_PREFIX' => 'C:\\Qt\\Static\\5.8.0\\'
+    'SESSIONNAME' => 'Console'
+    'SSL_CERT_DIR' => 'C:\\OpenSSL-Win32\\bin\\PEM'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\Windows'
+    'TEMP' => 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp'
+    'USERDOMAIN' => 'terror'
+    'USERNAME' => 'Administrator'
+    'USERPROFILE' => 'C:\\Users\\Administrator'
+    'VBOX_INSTALL_PATH' => 'C:\\virtualbox\\'
+    'VIRTUAL_ENV' => 'O:\\app\\firefox-dev\\addon-sdk-1.17'
+    'windir' => 'C:\\Windows'
+    'windows_tracing_flags' => '3'
+    'windows_tracing_logfile' => 'C:\\BVTBin\\Tests\\installpackage\\csilogfile.log'
+    'PHP_SELF' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'SCRIPT_NAME' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'SCRIPT_FILENAME' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'PATH_TRANSLATED' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1503873153.6886
+    'REQUEST_TIME' => 1503873153
+    'argv' => [
+        0 => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+        1 => 'migrate/up'
+    ]
+    'argc' => 2
+]
+2017-08-28 01:33:21 [-][-][-][error][yii\db\Exception] PDOException: SQLSTATE[HY000]: General error: 1215 Cannot add foreign key constraint in C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Command.php:842
+Stack trace:
+#0 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Command.php(842): PDOStatement->execute()
+#1 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Migration.php(442): yii\db\Command->execute()
+#2 C:\Apache24\htdocs\multisys\erp\17\console\migrations\m170827_150023_create_profile_table.php(26): yii\db\Migration->addForeignKey('fk_profile_coun...', 'profile', 'country_id', 'country', 'id', 'CASCADE', 'CASCADE')
+#3 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(671): m170827_150023_create_profile_table->up()
+#4 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(183): yii\console\controllers\BaseMigrateController->migrateUp('m170827_150023_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#7 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#8 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Controller.php(128): yii\base\Controller->runAction('up', Array)
+#9 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Module.php(523): yii\console\Controller->runAction('up', Array)
+#10 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('migrate/up', Array)
+#11 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('migrate/up', Array)
+#12 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 C:\Apache24\htdocs\multisys\erp\17\yii(27): yii\base\Application->run()
+#14 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000]: General error: 1215 Cannot add foreign key constraint
+The SQL being executed was: ALTER TABLE `profile` ADD CONSTRAINT `fk_profile_country` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`) ON DELETE CASCADE ON UPDATE CASCADE in C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Schema.php:636
+Stack trace:
+#0 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Command.php(852): yii\db\Schema->convertException(Object(PDOException), 'ALTER TABLE `pr...')
+#1 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Migration.php(442): yii\db\Command->execute()
+#2 C:\Apache24\htdocs\multisys\erp\17\console\migrations\m170827_150023_create_profile_table.php(26): yii\db\Migration->addForeignKey('fk_profile_coun...', 'profile', 'country_id', 'country', 'id', 'CASCADE', 'CASCADE')
+#3 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(671): m170827_150023_create_profile_table->up()
+#4 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(183): yii\console\controllers\BaseMigrateController->migrateUp('m170827_150023_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#7 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#8 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Controller.php(128): yii\base\Controller->runAction('up', Array)
+#9 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Module.php(523): yii\console\Controller->runAction('up', Array)
+#10 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('migrate/up', Array)
+#11 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('migrate/up', Array)
+#12 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 C:\Apache24\htdocs\multisys\erp\17\yii(27): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1215
+    [2] => Cannot add foreign key constraint
+)
+
+2017-08-28 01:33:18 [-][-][-][info][application] $_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'AMDAPPSDKROOT' => 'C:\\Program Files (x86)\\AMD APP SDK\\2.9-1\\'
+    'ANT_HOME' => 'c:\\ant'
+    'APPDATA' => 'C:\\Users\\Administrator\\AppData\\Roaming'
+    'AVR32_HOME' => 'C:\\WinAVR-20100110'
+    'CLASSPATH' => 'C:\\BerkeleyDB.11gR2-5.3.28\\jar\\db.jar;C:\\BerkeleyDB.11gR2-5.3.28\\jar\\jdbc.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\slf4j-log4j12.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\slf4j-api.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\log4j.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\libthrift.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db_thrift_interface.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db_thrift_client.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db_thrift_server.jar'
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'TERROR'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'CUDDLEFISH_ROOT' => 'O:\\app\\firefox-dev\\addon-sdk-1.17'
+    'CYGWIN' => 'mintty'
+    'FP_NO_HOST_CHECK' => 'NO'
+    'GDAL_DATA' => 'C:\\Program Files (x86)\\GDAL\\gdal-data'
+    'HOMEDRIVE' => 'C:'
+    'HOMEPATH' => '\\Users\\Administrator'
+    'JAVA_HOME' => 'C:\\jdk1.8.0_131'
+    'LANG' => 'en'
+    'LOCALAPPDATA' => 'C:\\Users\\Administrator\\AppData\\Local'
+    'LOGONSERVER' => '\\\\TERROR'
+    'MYSQL_PATH' => 'C:\\MySQL\\connector\\'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OPENSSL_CONF' => 'C:\\OpenSSL-Win32\\bin\\openssl.cfg'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\virtualbox;C:\\GPG;C:\\php;C:\\php\\ext;C:\\msys2\\mingw32\\bin;C:\\mingw\\bin;C:\\OpenSSL-Win64\\bin;C:\\OpenSSL-Win32\\bin;c:\\windows\\system32;C:\\Python27-64bit;C:\\ant\\bin;C:\\Python27-64bit\\Scripts;C:\\NetBeans7.3.1\\java\\maven\\bin;C:\\MySQL\\connector\\lib;C:\\MySQL\\connector\\include;C:\\MySQL\\mysql-5.7.17-winx64\\lib;C:\\MySQL\\mysql-5.7.17-winx64\\include;C:\\MySQL\\mysql-5.7.17-winx64\\bin;C:\\Qt\\Qt5.8.0\\Tools\\mingw530_32\\opt\\bin;C:\\Qt\\Qt5.8.0\\Tools\\mingw530_32\\bin;C:\\Qt\\Qt5.8.0\\5.8\\mingw53_32\\plugins\\sqldrivers;C:\\Qt\\Qt5.8.0\\5.8\\mingw53_32\\bin;C:\\Qt\\Qt5.8.0\\Tools\\QtCreator\\bin;C:\\MySQL\\mysql-5.7.17-winx64\\bin;C:\\MySQLutils;C:\\Windows\\twain_32\\CNQL60;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\CMake\\bin;C:\\Python27;O:\\app\\firefox-dev\\addon-sdk-1.17\\bin;C:\\Android\\android-studio\\sdk\\platform-tools;C:\\Perl\\bin;C:\\OpenSSL-Win32\\bin;C:\\Perl\\site\\bin;C:\\Perl\\bin;C:\\MinGW\\bin;C:\\Qt\\4.8.6\\bin;C:\\OpenSSH\\bin;C:\\Windows\\twain_32\\CNQL60;C:\\ffmpeg-20170123-e371f03-win64-static\\bin;C:\\Git\\cmd;C:\\Git\\mingw64\\bin;C:\\Git\\usr\\bin;C:\\MySQLutils\\;C:\\MySQLutils;;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\GPG\\pub;C:\\BerkeleyDB.11gR2-5.3.28\\bin;C:\\Calibre2\\;C:\\Android\\android-sdk\\platform-tools;C:\\MIT-Scheme\\bin;C:\\nodejs\\;C:\\MongoDB\\bin;\"C:\\AMD\\AMD APP SDK\\2.9-1\\bin\\x86_64\";\"C:\\AMD\\AMD APP SDK\\2.9-1\\bin\\x86\";\"C:\\Program Files (x86)\\AMD APP SDK\\2.9-1\\bin\\x86_64\";\"C:\\Program Files (x86)\\AMD APP SDK\\2.9-1\\bin\\x86\";C:\\Python27\\;C:\\Python27\\Scripts;C:\\Python27;C:\\jdk1.7.0_25\\jre\\bin;C:\\jdk1.7.0_25\\bin;C:\\Program Files (x86)\\AMD APP\\bin\\x86_64;C:\\Program Files (x86)\\AMD APP\\bin\\x86;c:\\Program Files (x86)\\Intel\\iCLS Client\\;c:\\Program Files\\Intel\\iCLS Client\\;C:\\Program Files (x86)\\PC Connectivity Solution\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Hewlett-Packard\\HP ProtectTools Security Manager\\Bin\\;C:\\Program Files\\TortoiseSVN\\bin;C:\\MySQL\\MySQL Server 5.5\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Python\\Scripts;C:\\Program Files (x86)\\CVSNT\\;C:\\ffmpeg-20170123-e371f03-win64-static\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\npm'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.py;.pyw'
+    'PHPBIN' => 'C:\\php\\php.exe'
+    'PROCESSOR_ARCHITECTURE' => 'x86'
+    'PROCESSOR_ARCHITEW6432' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 37 Stepping 5, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '2505'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files (x86)'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PROMPT' => '$P$G'
+    'PSModulePath' => 'C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules'
+    'PTSMInstallPath_X86' => 'C:\\Program Files (x86)\\Hewlett-Packard\\HP ProtectTools Security Manager\\'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'PYTHONPATH' => 'O:\\app\\firefox-dev\\addon-sdk-1.17\\python-lib'
+    'QT_INSTALL_PREFIX' => 'C:\\Qt\\Static\\5.8.0\\'
+    'SESSIONNAME' => 'Console'
+    'SSL_CERT_DIR' => 'C:\\OpenSSL-Win32\\bin\\PEM'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\Windows'
+    'TEMP' => 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp'
+    'USERDOMAIN' => 'terror'
+    'USERNAME' => 'Administrator'
+    'USERPROFILE' => 'C:\\Users\\Administrator'
+    'VBOX_INSTALL_PATH' => 'C:\\virtualbox\\'
+    'VIRTUAL_ENV' => 'O:\\app\\firefox-dev\\addon-sdk-1.17'
+    'windir' => 'C:\\Windows'
+    'windows_tracing_flags' => '3'
+    'windows_tracing_logfile' => 'C:\\BVTBin\\Tests\\installpackage\\csilogfile.log'
+    'PHP_SELF' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'SCRIPT_NAME' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'SCRIPT_FILENAME' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'PATH_TRANSLATED' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1503873198.2495
+    'REQUEST_TIME' => 1503873198
+    'argv' => [
+        0 => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+        1 => 'migrate/up'
+    ]
+    'argc' => 2
+]
+2017-08-28 01:39:17 [-][-][-][error][Error] Error: Class 'm170827_150013_create_countries_table' not found in C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\MigrateController.php:186
+Stack trace:
+#0 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(670): yii\console\controllers\MigrateController->createMigration('m170827_150013_...')
+#1 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(183): yii\console\controllers\BaseMigrateController->migrateUp('m170827_150013_...')
+#2 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#3 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#4 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#5 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Controller.php(128): yii\base\Controller->runAction('up', Array)
+#6 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Module.php(523): yii\console\Controller->runAction('up', Array)
+#7 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('migrate/up', Array)
+#8 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('migrate/up', Array)
+#9 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#10 C:\Apache24\htdocs\multisys\erp\17\yii(27): yii\base\Application->run()
+#11 {main}
+2017-08-28 01:38:40 [-][-][-][info][application] $_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'AMDAPPSDKROOT' => 'C:\\Program Files (x86)\\AMD APP SDK\\2.9-1\\'
+    'ANT_HOME' => 'c:\\ant'
+    'APPDATA' => 'C:\\Users\\Administrator\\AppData\\Roaming'
+    'AVR32_HOME' => 'C:\\WinAVR-20100110'
+    'CLASSPATH' => 'C:\\BerkeleyDB.11gR2-5.3.28\\jar\\db.jar;C:\\BerkeleyDB.11gR2-5.3.28\\jar\\jdbc.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\slf4j-log4j12.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\slf4j-api.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\log4j.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\libthrift.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db_thrift_interface.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db_thrift_client.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db_thrift_server.jar'
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'TERROR'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'CUDDLEFISH_ROOT' => 'O:\\app\\firefox-dev\\addon-sdk-1.17'
+    'CYGWIN' => 'mintty'
+    'FP_NO_HOST_CHECK' => 'NO'
+    'GDAL_DATA' => 'C:\\Program Files (x86)\\GDAL\\gdal-data'
+    'HOMEDRIVE' => 'C:'
+    'HOMEPATH' => '\\Users\\Administrator'
+    'JAVA_HOME' => 'C:\\jdk1.8.0_131'
+    'LANG' => 'en'
+    'LOCALAPPDATA' => 'C:\\Users\\Administrator\\AppData\\Local'
+    'LOGONSERVER' => '\\\\TERROR'
+    'MYSQL_PATH' => 'C:\\MySQL\\connector\\'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OPENSSL_CONF' => 'C:\\OpenSSL-Win32\\bin\\openssl.cfg'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\virtualbox;C:\\GPG;C:\\php;C:\\php\\ext;C:\\msys2\\mingw32\\bin;C:\\mingw\\bin;C:\\OpenSSL-Win64\\bin;C:\\OpenSSL-Win32\\bin;c:\\windows\\system32;C:\\Python27-64bit;C:\\ant\\bin;C:\\Python27-64bit\\Scripts;C:\\NetBeans7.3.1\\java\\maven\\bin;C:\\MySQL\\connector\\lib;C:\\MySQL\\connector\\include;C:\\MySQL\\mysql-5.7.17-winx64\\lib;C:\\MySQL\\mysql-5.7.17-winx64\\include;C:\\MySQL\\mysql-5.7.17-winx64\\bin;C:\\Qt\\Qt5.8.0\\Tools\\mingw530_32\\opt\\bin;C:\\Qt\\Qt5.8.0\\Tools\\mingw530_32\\bin;C:\\Qt\\Qt5.8.0\\5.8\\mingw53_32\\plugins\\sqldrivers;C:\\Qt\\Qt5.8.0\\5.8\\mingw53_32\\bin;C:\\Qt\\Qt5.8.0\\Tools\\QtCreator\\bin;C:\\MySQL\\mysql-5.7.17-winx64\\bin;C:\\MySQLutils;C:\\Windows\\twain_32\\CNQL60;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\CMake\\bin;C:\\Python27;O:\\app\\firefox-dev\\addon-sdk-1.17\\bin;C:\\Android\\android-studio\\sdk\\platform-tools;C:\\Perl\\bin;C:\\OpenSSL-Win32\\bin;C:\\Perl\\site\\bin;C:\\Perl\\bin;C:\\MinGW\\bin;C:\\Qt\\4.8.6\\bin;C:\\OpenSSH\\bin;C:\\Windows\\twain_32\\CNQL60;C:\\ffmpeg-20170123-e371f03-win64-static\\bin;C:\\Git\\cmd;C:\\Git\\mingw64\\bin;C:\\Git\\usr\\bin;C:\\MySQLutils\\;C:\\MySQLutils;;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\GPG\\pub;C:\\BerkeleyDB.11gR2-5.3.28\\bin;C:\\Calibre2\\;C:\\Android\\android-sdk\\platform-tools;C:\\MIT-Scheme\\bin;C:\\nodejs\\;C:\\MongoDB\\bin;\"C:\\AMD\\AMD APP SDK\\2.9-1\\bin\\x86_64\";\"C:\\AMD\\AMD APP SDK\\2.9-1\\bin\\x86\";\"C:\\Program Files (x86)\\AMD APP SDK\\2.9-1\\bin\\x86_64\";\"C:\\Program Files (x86)\\AMD APP SDK\\2.9-1\\bin\\x86\";C:\\Python27\\;C:\\Python27\\Scripts;C:\\Python27;C:\\jdk1.7.0_25\\jre\\bin;C:\\jdk1.7.0_25\\bin;C:\\Program Files (x86)\\AMD APP\\bin\\x86_64;C:\\Program Files (x86)\\AMD APP\\bin\\x86;c:\\Program Files (x86)\\Intel\\iCLS Client\\;c:\\Program Files\\Intel\\iCLS Client\\;C:\\Program Files (x86)\\PC Connectivity Solution\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Hewlett-Packard\\HP ProtectTools Security Manager\\Bin\\;C:\\Program Files\\TortoiseSVN\\bin;C:\\MySQL\\MySQL Server 5.5\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Python\\Scripts;C:\\Program Files (x86)\\CVSNT\\;C:\\ffmpeg-20170123-e371f03-win64-static\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\npm'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.py;.pyw'
+    'PHPBIN' => 'C:\\php\\php.exe'
+    'PROCESSOR_ARCHITECTURE' => 'x86'
+    'PROCESSOR_ARCHITEW6432' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 37 Stepping 5, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '2505'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files (x86)'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PROMPT' => '$P$G'
+    'PSModulePath' => 'C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules'
+    'PTSMInstallPath_X86' => 'C:\\Program Files (x86)\\Hewlett-Packard\\HP ProtectTools Security Manager\\'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'PYTHONPATH' => 'O:\\app\\firefox-dev\\addon-sdk-1.17\\python-lib'
+    'QT_INSTALL_PREFIX' => 'C:\\Qt\\Static\\5.8.0\\'
+    'SESSIONNAME' => 'Console'
+    'SSL_CERT_DIR' => 'C:\\OpenSSL-Win32\\bin\\PEM'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\Windows'
+    'TEMP' => 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp'
+    'USERDOMAIN' => 'terror'
+    'USERNAME' => 'Administrator'
+    'USERPROFILE' => 'C:\\Users\\Administrator'
+    'VBOX_INSTALL_PATH' => 'C:\\virtualbox\\'
+    'VIRTUAL_ENV' => 'O:\\app\\firefox-dev\\addon-sdk-1.17'
+    'windir' => 'C:\\Windows'
+    'windows_tracing_flags' => '3'
+    'windows_tracing_logfile' => 'C:\\BVTBin\\Tests\\installpackage\\csilogfile.log'
+    'PHP_SELF' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'SCRIPT_NAME' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'SCRIPT_FILENAME' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'PATH_TRANSLATED' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1503873520.7958
+    'REQUEST_TIME' => 1503873520
+    'argv' => [
+        0 => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+        1 => 'migrate/up'
+    ]
+    'argc' => 2
+]
+2017-08-28 01:40:20 [-][-][-][error][yii\db\Exception] PDOException: SQLSTATE[HY000]: General error: 1215 Cannot add foreign key constraint in C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Command.php:842
+Stack trace:
+#0 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Command.php(842): PDOStatement->execute()
+#1 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Migration.php(442): yii\db\Command->execute()
+#2 C:\Apache24\htdocs\multisys\erp\17\console\migrations\m170827_150023_create_profile_table.php(26): yii\db\Migration->addForeignKey('fk_profile_coun...', 'profile', 'country_id', 'country', 'id', 'CASCADE', 'CASCADE')
+#3 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(671): m170827_150023_create_profile_table->up()
+#4 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(183): yii\console\controllers\BaseMigrateController->migrateUp('m170827_150023_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#7 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#8 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Controller.php(128): yii\base\Controller->runAction('up', Array)
+#9 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Module.php(523): yii\console\Controller->runAction('up', Array)
+#10 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('migrate/up', Array)
+#11 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('migrate/up', Array)
+#12 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 C:\Apache24\htdocs\multisys\erp\17\yii(27): yii\base\Application->run()
+#14 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000]: General error: 1215 Cannot add foreign key constraint
+The SQL being executed was: ALTER TABLE `profile` ADD CONSTRAINT `fk_profile_country` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`) ON DELETE CASCADE ON UPDATE CASCADE in C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Schema.php:636
+Stack trace:
+#0 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Command.php(852): yii\db\Schema->convertException(Object(PDOException), 'ALTER TABLE `pr...')
+#1 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Migration.php(442): yii\db\Command->execute()
+#2 C:\Apache24\htdocs\multisys\erp\17\console\migrations\m170827_150023_create_profile_table.php(26): yii\db\Migration->addForeignKey('fk_profile_coun...', 'profile', 'country_id', 'country', 'id', 'CASCADE', 'CASCADE')
+#3 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(671): m170827_150023_create_profile_table->up()
+#4 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(183): yii\console\controllers\BaseMigrateController->migrateUp('m170827_150023_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#7 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#8 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Controller.php(128): yii\base\Controller->runAction('up', Array)
+#9 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Module.php(523): yii\console\Controller->runAction('up', Array)
+#10 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('migrate/up', Array)
+#11 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('migrate/up', Array)
+#12 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 C:\Apache24\htdocs\multisys\erp\17\yii(27): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1215
+    [2] => Cannot add foreign key constraint
+)
+
+2017-08-28 01:40:17 [-][-][-][info][application] $_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'AMDAPPSDKROOT' => 'C:\\Program Files (x86)\\AMD APP SDK\\2.9-1\\'
+    'ANT_HOME' => 'c:\\ant'
+    'APPDATA' => 'C:\\Users\\Administrator\\AppData\\Roaming'
+    'AVR32_HOME' => 'C:\\WinAVR-20100110'
+    'CLASSPATH' => 'C:\\BerkeleyDB.11gR2-5.3.28\\jar\\db.jar;C:\\BerkeleyDB.11gR2-5.3.28\\jar\\jdbc.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\slf4j-log4j12.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\slf4j-api.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\log4j.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\libthrift.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db_thrift_interface.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db_thrift_client.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db_thrift_server.jar'
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'TERROR'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'CUDDLEFISH_ROOT' => 'O:\\app\\firefox-dev\\addon-sdk-1.17'
+    'CYGWIN' => 'mintty'
+    'FP_NO_HOST_CHECK' => 'NO'
+    'GDAL_DATA' => 'C:\\Program Files (x86)\\GDAL\\gdal-data'
+    'HOMEDRIVE' => 'C:'
+    'HOMEPATH' => '\\Users\\Administrator'
+    'JAVA_HOME' => 'C:\\jdk1.8.0_131'
+    'LANG' => 'en'
+    'LOCALAPPDATA' => 'C:\\Users\\Administrator\\AppData\\Local'
+    'LOGONSERVER' => '\\\\TERROR'
+    'MYSQL_PATH' => 'C:\\MySQL\\connector\\'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OPENSSL_CONF' => 'C:\\OpenSSL-Win32\\bin\\openssl.cfg'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\virtualbox;C:\\GPG;C:\\php;C:\\php\\ext;C:\\msys2\\mingw32\\bin;C:\\mingw\\bin;C:\\OpenSSL-Win64\\bin;C:\\OpenSSL-Win32\\bin;c:\\windows\\system32;C:\\Python27-64bit;C:\\ant\\bin;C:\\Python27-64bit\\Scripts;C:\\NetBeans7.3.1\\java\\maven\\bin;C:\\MySQL\\connector\\lib;C:\\MySQL\\connector\\include;C:\\MySQL\\mysql-5.7.17-winx64\\lib;C:\\MySQL\\mysql-5.7.17-winx64\\include;C:\\MySQL\\mysql-5.7.17-winx64\\bin;C:\\Qt\\Qt5.8.0\\Tools\\mingw530_32\\opt\\bin;C:\\Qt\\Qt5.8.0\\Tools\\mingw530_32\\bin;C:\\Qt\\Qt5.8.0\\5.8\\mingw53_32\\plugins\\sqldrivers;C:\\Qt\\Qt5.8.0\\5.8\\mingw53_32\\bin;C:\\Qt\\Qt5.8.0\\Tools\\QtCreator\\bin;C:\\MySQL\\mysql-5.7.17-winx64\\bin;C:\\MySQLutils;C:\\Windows\\twain_32\\CNQL60;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\CMake\\bin;C:\\Python27;O:\\app\\firefox-dev\\addon-sdk-1.17\\bin;C:\\Android\\android-studio\\sdk\\platform-tools;C:\\Perl\\bin;C:\\OpenSSL-Win32\\bin;C:\\Perl\\site\\bin;C:\\Perl\\bin;C:\\MinGW\\bin;C:\\Qt\\4.8.6\\bin;C:\\OpenSSH\\bin;C:\\Windows\\twain_32\\CNQL60;C:\\ffmpeg-20170123-e371f03-win64-static\\bin;C:\\Git\\cmd;C:\\Git\\mingw64\\bin;C:\\Git\\usr\\bin;C:\\MySQLutils\\;C:\\MySQLutils;;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\GPG\\pub;C:\\BerkeleyDB.11gR2-5.3.28\\bin;C:\\Calibre2\\;C:\\Android\\android-sdk\\platform-tools;C:\\MIT-Scheme\\bin;C:\\nodejs\\;C:\\MongoDB\\bin;\"C:\\AMD\\AMD APP SDK\\2.9-1\\bin\\x86_64\";\"C:\\AMD\\AMD APP SDK\\2.9-1\\bin\\x86\";\"C:\\Program Files (x86)\\AMD APP SDK\\2.9-1\\bin\\x86_64\";\"C:\\Program Files (x86)\\AMD APP SDK\\2.9-1\\bin\\x86\";C:\\Python27\\;C:\\Python27\\Scripts;C:\\Python27;C:\\jdk1.7.0_25\\jre\\bin;C:\\jdk1.7.0_25\\bin;C:\\Program Files (x86)\\AMD APP\\bin\\x86_64;C:\\Program Files (x86)\\AMD APP\\bin\\x86;c:\\Program Files (x86)\\Intel\\iCLS Client\\;c:\\Program Files\\Intel\\iCLS Client\\;C:\\Program Files (x86)\\PC Connectivity Solution\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Hewlett-Packard\\HP ProtectTools Security Manager\\Bin\\;C:\\Program Files\\TortoiseSVN\\bin;C:\\MySQL\\MySQL Server 5.5\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Python\\Scripts;C:\\Program Files (x86)\\CVSNT\\;C:\\ffmpeg-20170123-e371f03-win64-static\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\npm'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.py;.pyw'
+    'PHPBIN' => 'C:\\php\\php.exe'
+    'PROCESSOR_ARCHITECTURE' => 'x86'
+    'PROCESSOR_ARCHITEW6432' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 37 Stepping 5, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '2505'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files (x86)'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PROMPT' => '$P$G'
+    'PSModulePath' => 'C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules'
+    'PTSMInstallPath_X86' => 'C:\\Program Files (x86)\\Hewlett-Packard\\HP ProtectTools Security Manager\\'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'PYTHONPATH' => 'O:\\app\\firefox-dev\\addon-sdk-1.17\\python-lib'
+    'QT_INSTALL_PREFIX' => 'C:\\Qt\\Static\\5.8.0\\'
+    'SESSIONNAME' => 'Console'
+    'SSL_CERT_DIR' => 'C:\\OpenSSL-Win32\\bin\\PEM'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\Windows'
+    'TEMP' => 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp'
+    'USERDOMAIN' => 'terror'
+    'USERNAME' => 'Administrator'
+    'USERPROFILE' => 'C:\\Users\\Administrator'
+    'VBOX_INSTALL_PATH' => 'C:\\virtualbox\\'
+    'VIRTUAL_ENV' => 'O:\\app\\firefox-dev\\addon-sdk-1.17'
+    'windir' => 'C:\\Windows'
+    'windows_tracing_flags' => '3'
+    'windows_tracing_logfile' => 'C:\\BVTBin\\Tests\\installpackage\\csilogfile.log'
+    'PHP_SELF' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'SCRIPT_NAME' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'SCRIPT_FILENAME' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'PATH_TRANSLATED' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1503873617.0168
+    'REQUEST_TIME' => 1503873617
+    'argv' => [
+        0 => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+        1 => 'migrate/up'
+    ]
+    'argc' => 2
+]
+2017-08-28 01:41:43 [-][-][-][error][yii\db\Exception] PDOException: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'profile' already exists in C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Command.php:842
+Stack trace:
+#0 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Command.php(842): PDOStatement->execute()
+#1 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Migration.php(288): yii\db\Command->execute()
+#2 C:\Apache24\htdocs\multisys\erp\17\console\migrations\m170827_150023_create_profile_table.php(21): yii\db\Migration->createTable('profile', Array)
+#3 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(671): m170827_150023_create_profile_table->up()
+#4 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(183): yii\console\controllers\BaseMigrateController->migrateUp('m170827_150023_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#7 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#8 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Controller.php(128): yii\base\Controller->runAction('up', Array)
+#9 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Module.php(523): yii\console\Controller->runAction('up', Array)
+#10 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('migrate/up', Array)
+#11 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('migrate/up', Array)
+#12 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 C:\Apache24\htdocs\multisys\erp\17\yii(27): yii\base\Application->run()
+#14 {main}
+
+Next yii\db\Exception: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'profile' already exists
+The SQL being executed was: CREATE TABLE `profile` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`user_id` int(11) NOT NULL,
+	`country_id` int(11) NOT NULL,
+	`dob` datetime NOT NULL,
+	`expected_salary` int(11) NOT NULL,
+	`description` text NOT NULL
+) in C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Schema.php:636
+Stack trace:
+#0 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Command.php(852): yii\db\Schema->convertException(Object(PDOException), 'CREATE TABLE `p...')
+#1 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\db\Migration.php(288): yii\db\Command->execute()
+#2 C:\Apache24\htdocs\multisys\erp\17\console\migrations\m170827_150023_create_profile_table.php(21): yii\db\Migration->createTable('profile', Array)
+#3 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(671): m170827_150023_create_profile_table->up()
+#4 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(183): yii\console\controllers\BaseMigrateController->migrateUp('m170827_150023_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#7 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#8 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Controller.php(128): yii\base\Controller->runAction('up', Array)
+#9 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Module.php(523): yii\console\Controller->runAction('up', Array)
+#10 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('migrate/up', Array)
+#11 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('migrate/up', Array)
+#12 C:\Apache24\htdocs\multisys\erp\17\vendor\yiisoft\yii2\base\Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 C:\Apache24\htdocs\multisys\erp\17\yii(27): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => 42S01
+    [1] => 1050
+    [2] => Table 'profile' already exists
+)
+
+2017-08-28 01:41:39 [-][-][-][info][application] $_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'AMDAPPSDKROOT' => 'C:\\Program Files (x86)\\AMD APP SDK\\2.9-1\\'
+    'ANT_HOME' => 'c:\\ant'
+    'APPDATA' => 'C:\\Users\\Administrator\\AppData\\Roaming'
+    'AVR32_HOME' => 'C:\\WinAVR-20100110'
+    'CLASSPATH' => 'C:\\BerkeleyDB.11gR2-5.3.28\\jar\\db.jar;C:\\BerkeleyDB.11gR2-5.3.28\\jar\\jdbc.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\slf4j-log4j12.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\slf4j-api.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\log4j.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\libthrift.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db_thrift_interface.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db_thrift_client.jar;C:\\Berkeley.DB.12cR1 6.2.32\\jar\\db_thrift_server.jar'
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'TERROR'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'CUDDLEFISH_ROOT' => 'O:\\app\\firefox-dev\\addon-sdk-1.17'
+    'CYGWIN' => 'mintty'
+    'FP_NO_HOST_CHECK' => 'NO'
+    'GDAL_DATA' => 'C:\\Program Files (x86)\\GDAL\\gdal-data'
+    'HOMEDRIVE' => 'C:'
+    'HOMEPATH' => '\\Users\\Administrator'
+    'JAVA_HOME' => 'C:\\jdk1.8.0_131'
+    'LANG' => 'en'
+    'LOCALAPPDATA' => 'C:\\Users\\Administrator\\AppData\\Local'
+    'LOGONSERVER' => '\\\\TERROR'
+    'MYSQL_PATH' => 'C:\\MySQL\\connector\\'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OPENSSL_CONF' => 'C:\\OpenSSL-Win32\\bin\\openssl.cfg'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\virtualbox;C:\\GPG;C:\\php;C:\\php\\ext;C:\\msys2\\mingw32\\bin;C:\\mingw\\bin;C:\\OpenSSL-Win64\\bin;C:\\OpenSSL-Win32\\bin;c:\\windows\\system32;C:\\Python27-64bit;C:\\ant\\bin;C:\\Python27-64bit\\Scripts;C:\\NetBeans7.3.1\\java\\maven\\bin;C:\\MySQL\\connector\\lib;C:\\MySQL\\connector\\include;C:\\MySQL\\mysql-5.7.17-winx64\\lib;C:\\MySQL\\mysql-5.7.17-winx64\\include;C:\\MySQL\\mysql-5.7.17-winx64\\bin;C:\\Qt\\Qt5.8.0\\Tools\\mingw530_32\\opt\\bin;C:\\Qt\\Qt5.8.0\\Tools\\mingw530_32\\bin;C:\\Qt\\Qt5.8.0\\5.8\\mingw53_32\\plugins\\sqldrivers;C:\\Qt\\Qt5.8.0\\5.8\\mingw53_32\\bin;C:\\Qt\\Qt5.8.0\\Tools\\QtCreator\\bin;C:\\MySQL\\mysql-5.7.17-winx64\\bin;C:\\MySQLutils;C:\\Windows\\twain_32\\CNQL60;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\CMake\\bin;C:\\Python27;O:\\app\\firefox-dev\\addon-sdk-1.17\\bin;C:\\Android\\android-studio\\sdk\\platform-tools;C:\\Perl\\bin;C:\\OpenSSL-Win32\\bin;C:\\Perl\\site\\bin;C:\\Perl\\bin;C:\\MinGW\\bin;C:\\Qt\\4.8.6\\bin;C:\\OpenSSH\\bin;C:\\Windows\\twain_32\\CNQL60;C:\\ffmpeg-20170123-e371f03-win64-static\\bin;C:\\Git\\cmd;C:\\Git\\mingw64\\bin;C:\\Git\\usr\\bin;C:\\MySQLutils\\;C:\\MySQLutils;;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\GPG\\pub;C:\\BerkeleyDB.11gR2-5.3.28\\bin;C:\\Calibre2\\;C:\\Android\\android-sdk\\platform-tools;C:\\MIT-Scheme\\bin;C:\\nodejs\\;C:\\MongoDB\\bin;\"C:\\AMD\\AMD APP SDK\\2.9-1\\bin\\x86_64\";\"C:\\AMD\\AMD APP SDK\\2.9-1\\bin\\x86\";\"C:\\Program Files (x86)\\AMD APP SDK\\2.9-1\\bin\\x86_64\";\"C:\\Program Files (x86)\\AMD APP SDK\\2.9-1\\bin\\x86\";C:\\Python27\\;C:\\Python27\\Scripts;C:\\Python27;C:\\jdk1.7.0_25\\jre\\bin;C:\\jdk1.7.0_25\\bin;C:\\Program Files (x86)\\AMD APP\\bin\\x86_64;C:\\Program Files (x86)\\AMD APP\\bin\\x86;c:\\Program Files (x86)\\Intel\\iCLS Client\\;c:\\Program Files\\Intel\\iCLS Client\\;C:\\Program Files (x86)\\PC Connectivity Solution\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Hewlett-Packard\\HP ProtectTools Security Manager\\Bin\\;C:\\Program Files\\TortoiseSVN\\bin;C:\\MySQL\\MySQL Server 5.5\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Python\\Scripts;C:\\Program Files (x86)\\CVSNT\\;C:\\ffmpeg-20170123-e371f03-win64-static\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\npm'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.py;.pyw'
+    'PHPBIN' => 'C:\\php\\php.exe'
+    'PROCESSOR_ARCHITECTURE' => 'x86'
+    'PROCESSOR_ARCHITEW6432' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 37 Stepping 5, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '2505'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files (x86)'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PROMPT' => '$P$G'
+    'PSModulePath' => 'C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules'
+    'PTSMInstallPath_X86' => 'C:\\Program Files (x86)\\Hewlett-Packard\\HP ProtectTools Security Manager\\'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'PYTHONPATH' => 'O:\\app\\firefox-dev\\addon-sdk-1.17\\python-lib'
+    'QT_INSTALL_PREFIX' => 'C:\\Qt\\Static\\5.8.0\\'
+    'SESSIONNAME' => 'Console'
+    'SSL_CERT_DIR' => 'C:\\OpenSSL-Win32\\bin\\PEM'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\Windows'
+    'TEMP' => 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp'
+    'USERDOMAIN' => 'terror'
+    'USERNAME' => 'Administrator'
+    'USERPROFILE' => 'C:\\Users\\Administrator'
+    'VBOX_INSTALL_PATH' => 'C:\\virtualbox\\'
+    'VIRTUAL_ENV' => 'O:\\app\\firefox-dev\\addon-sdk-1.17'
+    'windir' => 'C:\\Windows'
+    'windows_tracing_flags' => '3'
+    'windows_tracing_logfile' => 'C:\\BVTBin\\Tests\\installpackage\\csilogfile.log'
+    'PHP_SELF' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'SCRIPT_NAME' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'SCRIPT_FILENAME' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'PATH_TRANSLATED' => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1503873699.073
+    'REQUEST_TIME' => 1503873699
+    'argv' => [
+        0 => 'C:\\Apache24\\htdocs\\multisys\\erp\\17\\yii'
+        1 => 'migrate/up'
+    ]
+    'argc' => 2
+]
