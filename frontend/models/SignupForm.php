@@ -60,7 +60,7 @@ class SignupForm extends Model
 
             // the following three lines were added:
             $auth = \Yii::$app->authManager;
-            $userRole = $auth->getRole('user');
+            $userRole = $auth->getRole('author');
             $auth->assign($userRole, $user->getId());
 
             return($user);
