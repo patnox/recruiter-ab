@@ -81,9 +81,15 @@ INSTALLATION
 ------------
 
 ```
-1. Upload the files to your server
-2. Point the document root of your Web server to the frontend/web
-3. configs:
+1. Disable debug/dev mode by commenting/removing these two lines from frontend/web/index.php
+***************************************************
+defined('YII_DEBUG') or define('YII_DEBUG', true);
+defined('YII_ENV') or define('YII_ENV', 'dev');
+***************************************************
+2. Upload the files to your server 
+3. Point the document root of your Web server to the frontend/web  -- This is the main site
+4. You can Point the document root of another domain/subdomain at backend/web -- This is the administration portal for the site
+5. configs:
 
 Recommended Apache Configuration:
 

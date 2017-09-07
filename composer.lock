@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3189c060ca9cdd80f66a3f7e9e1dc083",
+    "content-hash": "dc9b4b1ee9653131be6f433a97cbdd5a",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -554,16 +554,16 @@
         },
         {
             "name": "dmstr/yii2-adminlte-asset",
-            "version": "2.4.2",
+            "version": "2.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dmstr/yii2-adminlte-asset.git",
-                "reference": "b339611f9f34621d731d3feca3a83b42720c7d5c"
+                "reference": "2cff40e951c47d02667617833465e09abdac45da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dmstr/yii2-adminlte-asset/zipball/b339611f9f34621d731d3feca3a83b42720c7d5c",
-                "reference": "b339611f9f34621d731d3feca3a83b42720c7d5c",
+                "url": "https://api.github.com/repos/dmstr/yii2-adminlte-asset/zipball/2cff40e951c47d02667617833465e09abdac45da",
+                "reference": "2cff40e951c47d02667617833465e09abdac45da",
                 "shasum": ""
             },
             "require": {
@@ -571,7 +571,7 @@
                 "cebe/yii2-gravatar": "1.*",
                 "rmrevin/yii2-fontawesome": "~2.9",
                 "yiisoft/yii2": "2.*",
-                "yiisoft/yii2-bootstrap": "2.*"
+                "yiisoft/yii2-bootstrap": "~2.0.0"
             },
             "type": "yii2-extension",
             "extra": {
@@ -610,7 +610,7 @@
                 "theme",
                 "yii2"
             ],
-            "time": "2017-03-30T09:04:16+00:00"
+            "time": "2017-08-31T16:21:44+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",

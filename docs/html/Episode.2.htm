@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-param" content="_csrf">
+    <meta name="csrf-token" content="Z0EtaXJVT2hVLX4QOWB4LhYOHD4QZA1RIAAbGDsZPVAxNRkdIy0.Hw==">
+    <title>Episode 2 - Creating Post, Category, Tag, PostTag and RBAC tables</title>
+    <link href="Episode.2_files/css.css" rel="stylesheet" type="text/css">
+    <meta name="keywords" content="yii, yii2, php, php framework, web, news, community, forum">
+<meta name="description" content="Episode 2 - Creating Post, Category, Tag, PostTag and RBAC tables">
+<link href="Episode.2_files/all-03bfb6d0b77355d73ce0c987f512345c.css" rel="stylesheet"><script async="" type="text/javascript" src="Episode.2_files/count.js"></script></head>
+<body>
+
+<div class="wrap">
+
+    <nav id="w2" class="navbar-inverse navbar-fixed-top navbar" role="navigation"><div class="container"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="https://www.my-yii.com/">My<small><span class="glyphicon glyphicon-heart"></span></small>Yii</a></div><div id="w2-collapse" class="collapse navbar-collapse"><ul id="w3" class="navbar-nav navbar-left nav"><li><a href="https://www.my-yii.com/news/index"><span class="glyphicon glyphicon-fire"></span> News</a></li>
+<li><a href="https://www.my-yii.com/extension/index"><span class="glyphicon glyphicon-th"></span> Extensions</a></li>
+<li><a href="https://www.my-yii.com/learn/index"><span class="glyphicon glyphicon-book"></span> Learn</a></li>
+<li><a href="https://www.my-yii.com/forum/main/index"><span class="glyphicon glyphicon-comment"></span> Forum</a></li></ul><ul id="w4" class="navbar-nav navbar-right nav"><li><a href="https://www.my-yii.com/site/signup"><span class="glyphicon glyphicon-plus"></span> Signup</a></li>
+<li><a href="https://www.my-yii.com/site/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li></ul></div></div></nav>
+    <div class="container-fluid container-header hidden-xs">
+        <div class="container">
+            <p class="lead">
+                Simple and fast Signup and Login with
+                <a href="https://www.my-yii.com/site/auth?authclient=facebook">
+                    <img src="Episode.2_files/facebook.png" alt="Facebook logo"> Facebook
+                </a>
+                and
+                <a href="https://www.my-yii.com/site/auth?authclient=github">
+                    <img src="Episode.2_files/github.png" alt="GitHub logo"> Github
+                </a>
+                to My<small><span class="glyphicon glyphicon-heart"></span></small>Yii community.
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+                <ul class="breadcrumb"><li><a href="https://www.my-yii.com/">Home</a></li>
+<li><a href="https://www.my-yii.com/learn/index">Learn</a></li>
+<li><a href="https://www.my-yii.com/learn/view-series/create-your-own-yii-2-powered-blog">Create your own Yii 2 powered blog</a></li>
+<li class="active">Episode 2 - Creating Post, Category, Tag, PostTag and RBAC tables</li>
+</ul>        <div class="episode-view">
+
+    <div class="row">
+        
+        <div class="col-md-9">
+
+            
+<div class="btn-group btn-group-justified btn-group-md" role="group" aria-label="Episodes navigation">
+                    <a class="btn" href="https://www.my-yii.com/learn/view-episode/episode-1-installing-and-setting-up-your-blog"><span class="glyphicon glyphicon-step-backward"></span> Episode 1 - Installing and set...</a>                        <a class="btn" href="https://www.my-yii.com/learn/view-episode/episode-3-setting-up-the-role-based-access-control-for-our-blog">Episode 3 - Setting up the Rol... <span class="glyphicon glyphicon-step-forward"></span></a>    </div>            <br>
+
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+                                            <p class="text-justify">Hello,<br>
+In the previous episode, we have successfully installed and set up our 
+Yii application. At the end we also run our first migration to test 
+database connection and create <code>User</code> table. In this episode,
+ we will learn more about migrations, create our own migrations and run 
+RBAC migrations. Also, we will prepare all other tables which we will 
+need to create our Yii blog application.</p>
+
+<h3>Database migrations</h3>
+
+<blockquote>
+  <p class="text-justify">During the course of developing and 
+maintaining a database-driven application, the structure of the database
+ being used evolves just like the source code does. For example, during 
+the development of an application, a new table may be found necessary; 
+after the application is deployed to production, it may be discovered 
+that an index should be created to improve the query performance; and so
+ on. Because a database structure change often requires some source code
+ changes, Yii supports the so-called database migration feature that 
+allows you to keep track of database changes in terms of database 
+migrations which are version-controlled together with the source code. <sup id="fnref:1"><a target="_blank" href="#fn:1" class="footnote-ref">1</a></sup></p>
+</blockquote>
+
+<h3>Creating migrations</h3>
+
+<h4>Tag</h4>
+
+<p class="text-justify">First, we will create new migration for <code>Tag</code> table. To generate new migration we have to run this command:</p>
+
+<pre><code class="hljs nginx"><span class="hljs-title">php</span> yii migrate/create create_tag_table
+</code></pre>
+
+<p class="text-justify">You should see:
+<img class="img-responsive img-rounded center-block" src="Episode.2_files/5.png" alt="Tags table migration" title="Tags table migration"></p>
+
+<p class="text-justify">This will generate the new create_tag_table migration file in <code>console/migrations/</code> directory with this name: <code>m&lt;YYMMDD_HHMMSS&gt;_create_tag_table</code> <sup id="fnref:3"><a target="_blank" href="#fn:3" class="footnote-ref">2</a></sup></p>
+
+<pre><code class="php hljs"><span class="hljs-preprocessor">&lt;?php</span>
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">yii</span>\<span class="hljs-title">db</span>\<span class="hljs-title">Migration</span>;
+
+<span class="hljs-comment">/**
+ * Handles the creation for table `tag_table`.
+ */</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">m160525_190407_create_tag_table</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Migration</span>
+</span>{
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@inheritdoc</span>
+     */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">up</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-variable">$this</span>-&gt;createTable(<span class="hljs-string">'tag_table'</span>, [
+            <span class="hljs-string">'id'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;primaryKey(),
+        ]);
+    }
+
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@inheritdoc</span>
+     */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">down</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-variable">$this</span>-&gt;dropTable(<span class="hljs-string">'tag_table'</span>);
+    }
+}
+</code></pre>
+
+<p class="text-justify">There are also <code>safeUp()</code> and <code>safeDown()</code> methods, but we won’t use them because we don’t actually need a transaction migration.</p>
+
+<p class="text-justify">As the official documentation describes: <sup id="fnref:4"><a target="_blank" href="#fn:4" class="footnote-ref">3</a></sup></p>
+
+<blockquote>
+  <p class="text-justify">In the migration class, you are expected to 
+write code in the up() method that makes changes to the database 
+structure. You may also want to write code in the down() method to 
+revert the changes made by up(). The up() method is invoked when you 
+upgrade the database with this migration, while the down() method is 
+invoked when you downgrade the database.</p>
+</blockquote>
+
+<p class="text-justify">We will use the new migration syntax introduced 
+in Yii 2.0.6. For our tag table we need only few columns like id, name, 
+created_at and updated_at. Our migration file will look like:</p>
+
+<pre><code class="php hljs"><span class="hljs-preprocessor">&lt;?php</span>
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">yii</span>\<span class="hljs-title">db</span>\<span class="hljs-title">Migration</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">m150904_094837_create_tag_table</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Migration</span>
+</span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">up</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-variable">$this</span>-&gt;createTable(<span class="hljs-string">'tag'</span>, [ <span class="hljs-comment">// creates new table named 'tag'</span>
+            <span class="hljs-string">'id'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;primaryKey(), <span class="hljs-comment">// id is PK (auto-increment, unique integer)</span>
+            <span class="hljs-string">'name'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;string(<span class="hljs-number">64</span>)-&gt;notNull()-&gt;unique(), <span class="hljs-comment">// 'name' is unique 'varchar' type with length of 64 chars, cannot be null</span>
+            <span class="hljs-string">'created_at'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;datetime()-&gt;notNull(), <span class="hljs-comment">// 'created_at' is 'datetime' type, cannot be null</span>
+            <span class="hljs-string">'updated_at'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;datetime(), <span class="hljs-comment">// 'updated_at' is 'datetime' type, can be null, default will be null</span>
+        ]);
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">down</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-variable">$this</span>-&gt;dropTable(<span class="hljs-string">'tag'</span>); <span class="hljs-comment">// drops existing table with name 'tag'</span>
+    }
+}
+</code></pre>
+
+<h4>Category</h4>
+
+<p class="text-justify">Run</p>
+
+<pre><code class="hljs nginx"><span class="hljs-title">php</span> yii migrate/create create_category_table
+</code></pre>
+
+<p class="text-justify">to generate new migration for Category table.</p>
+
+<p class="text-justify">Our <code>Category</code> migration will have this content:</p>
+
+<pre><code class="php hljs"><span class="hljs-preprocessor">&lt;?php</span>
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">yii</span>\<span class="hljs-title">db</span>\<span class="hljs-title">Migration</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">m150904_102410_create_category_table</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Migration</span>
+</span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">up</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-variable">$this</span>-&gt;createTable(<span class="hljs-string">'category'</span>, [
+            <span class="hljs-string">'id'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;primaryKey(),
+            <span class="hljs-string">'name'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;string(<span class="hljs-number">64</span>)-&gt;notNull()-&gt;unique(),
+            <span class="hljs-string">'slug'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;string(<span class="hljs-number">64</span>)-&gt;notNull()-&gt;unique(),
+            <span class="hljs-string">'meta_description'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;string(<span class="hljs-number">160</span>),
+            <span class="hljs-string">'created_at'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;datetime()-&gt;notNull(),
+            <span class="hljs-string">'updated_at'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;datetime(),
+        ]);
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">down</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-variable">$this</span>-&gt;dropTable(<span class="hljs-string">'category'</span>);
+    }
+}
+</code></pre>
+
+<h4>Post</h4>
+
+<p class="text-justify">Run</p>
+
+<pre><code class="hljs nginx"><span class="hljs-title">php</span> yii migrate/create create_post_table
+</code></pre>
+
+<p class="text-justify">to generate new migration for Post table.</p>
+
+<p class="text-justify">Our <code>Post</code> migration will have this content:</p>
+
+<pre><code class="php hljs"><span class="hljs-preprocessor">&lt;?php</span>
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">yii</span>\<span class="hljs-title">db</span>\<span class="hljs-title">Migration</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">m150904_102648_create_post_table</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Migration</span>
+</span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">up</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-variable">$this</span>-&gt;createTable(<span class="hljs-string">'post'</span>, [
+            <span class="hljs-string">'id'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;primaryKey(),
+            <span class="hljs-string">'title'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;string(<span class="hljs-number">128</span>)-&gt;notNull()-&gt;unique(),
+            <span class="hljs-string">'slug'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;string(<span class="hljs-number">128</span>)-&gt;notNull()-&gt;unique(),
+            <span class="hljs-string">'lead_photo'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;string(<span class="hljs-number">128</span>),
+            <span class="hljs-string">'lead_text'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;text(),
+            <span class="hljs-string">'content'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;text()-&gt;notNull(),
+            <span class="hljs-string">'meta_description'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;string(<span class="hljs-number">160</span>),
+            <span class="hljs-string">'created_at'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;datetime()-&gt;notNull(),
+            <span class="hljs-string">'updated_at'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;datetime(),
+            <span class="hljs-string">'created_by'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;integer()-&gt;notNull(),
+            <span class="hljs-string">'updated_by'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;integer(),
+            <span class="hljs-string">'category_id'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;integer()-&gt;notNull()
+        ]);
+
+        <span class="hljs-variable">$this</span>-&gt;createIndex(<span class="hljs-string">'post_index'</span>, <span class="hljs-string">'post'</span>, [<span class="hljs-string">'created_by'</span>, <span class="hljs-string">'updated_by'</span>]);
+        <span class="hljs-variable">$this</span>-&gt;addForeignKey(<span class="hljs-string">'fk_post_category'</span>, <span class="hljs-string">'post'</span>, <span class="hljs-string">'category_id'</span>, <span class="hljs-string">'category'</span>, <span class="hljs-string">'id'</span>, <span class="hljs-string">'CASCADE'</span>, <span class="hljs-string">'CASCADE'</span>);
+        <span class="hljs-variable">$this</span>-&gt;addForeignKey(<span class="hljs-string">'fk_post_user_created_by'</span>, <span class="hljs-string">'post'</span>, <span class="hljs-string">'created_by'</span>, <span class="hljs-string">'user'</span>, <span class="hljs-string">'id'</span>, <span class="hljs-string">'CASCADE'</span>, <span class="hljs-string">'CASCADE'</span>);
+        <span class="hljs-variable">$this</span>-&gt;addForeignKey(<span class="hljs-string">'fk_post_user_updated_by'</span>, <span class="hljs-string">'post'</span>, <span class="hljs-string">'updated_by'</span>, <span class="hljs-string">'user'</span>, <span class="hljs-string">'id'</span>, <span class="hljs-string">'CASCADE'</span>, <span class="hljs-string">'CASCADE'</span>);
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">down</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-variable">$this</span>-&gt;dropForeignKey(<span class="hljs-string">'fk_post_category'</span>, <span class="hljs-string">'post'</span>);
+        <span class="hljs-variable">$this</span>-&gt;dropForeignKey(<span class="hljs-string">'fk_post_user_created_by'</span>, <span class="hljs-string">'post'</span>);
+        <span class="hljs-variable">$this</span>-&gt;dropForeignKey(<span class="hljs-string">'fk_post_user_updated_by'</span>, <span class="hljs-string">'post'</span>);
+        <span class="hljs-variable">$this</span>-&gt;dropTable(<span class="hljs-string">'post'</span>);
+    }
+}
+</code></pre>
+
+<h4>PostTag</h4>
+
+<p class="text-justify">Run</p>
+
+<pre><code class="hljs nginx"><span class="hljs-title">php</span> yii migrate/create create_post_tag_table
+</code></pre>
+
+<p class="text-justify">to generate new migration for PostTag table.</p>
+
+<p class="text-justify">Our <code>PostTag</code> migration will have this content:</p>
+
+<pre><code class="php hljs"><span class="hljs-preprocessor">&lt;?php</span>
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">yii</span>\<span class="hljs-title">db</span>\<span class="hljs-title">Migration</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">m150906_141330_create_post_tag_table</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Migration</span>
+</span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">up</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-variable">$this</span>-&gt;createTable(<span class="hljs-string">'post_tag'</span>, [
+            <span class="hljs-string">'id'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;primaryKey(),
+            <span class="hljs-string">'post_id'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;integer()-&gt;notNull(),
+            <span class="hljs-string">'tag_id'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;integer()-&gt;notNull()
+        ]);
+
+        <span class="hljs-variable">$this</span>-&gt;createIndex(<span class="hljs-string">'post_tag_index'</span>, <span class="hljs-string">'post_tag'</span>, [<span class="hljs-string">'post_id'</span>, <span class="hljs-string">'tag_id'</span>]);
+        <span class="hljs-variable">$this</span>-&gt;addForeignKey(<span class="hljs-string">'fk_post_tag_post'</span>, <span class="hljs-string">'post_tag'</span>, <span class="hljs-string">'post_id'</span>, <span class="hljs-string">'post'</span>, <span class="hljs-string">'id'</span>, <span class="hljs-string">'CASCADE'</span>, <span class="hljs-string">'CASCADE'</span>);
+        <span class="hljs-variable">$this</span>-&gt;addForeignKey(<span class="hljs-string">'fk_post_tag_tag'</span>, <span class="hljs-string">'post_tag'</span>, <span class="hljs-string">'tag_id'</span>, <span class="hljs-string">'tag'</span>, <span class="hljs-string">'id'</span>, <span class="hljs-string">'CASCADE'</span>, <span class="hljs-string">'CASCADE'</span>);
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">down</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-variable">$this</span>-&gt;dropForeignKey(<span class="hljs-string">'fk_post_tag_post'</span>, <span class="hljs-string">'post_tag'</span>);
+        <span class="hljs-variable">$this</span>-&gt;dropForeignKey(<span class="hljs-string">'fk_post_tag_tag'</span>, <span class="hljs-string">'post_tag'</span>);
+        <span class="hljs-variable">$this</span>-&gt;dropTable(<span class="hljs-string">'post_tag'</span>);
+    }
+}
+</code></pre>
+
+<h3>Applying migrations</h3>
+
+<p class="text-justify">Run command</p>
+
+<pre><code class="hljs nginx"><span class="hljs-title">php</span> yii migrate/up 
+</code></pre>
+
+<p class="text-justify">in your console to apply newly created migrations.</p>
+
+<blockquote>
+  <p class="text-justify">This command will list all migrations that 
+have not been applied so far. If you confirm that you want to apply 
+these migrations, it will run the up() or safeUp() method in every new 
+migration class, one after another, in the order of their timestamp 
+values. If any of the migrations fails, the command will quit without 
+applying the rest of the migrations.</p>
+</blockquote>
+
+<h3>RBAC (Role-Based Access Control) tables migration <sup id="fnref:2"><a target="_blank" href="#fn:2" class="footnote-ref">4</a></sup></h3>
+
+<p class="text-justify">Before executing RBAC tables migration we must setup Yii <code>authManager</code> component.
+Yii provides two types of authorization managers: <code>yii\rbac\PhpManager</code> and <code>yii\rbac\DbManager</code>.
+ The former uses a PHP script file to store authorization data, while 
+the latter stores authorization data in a database. In our blog 
+application we will store our RBAC data in database - so we will use 
+DbManager.
+To configure authManager to work with DbManager we must add this code to
+ <code>common/config/main.php</code>:</p>
+
+<pre><code class="php hljs"><span class="hljs-string">'components'</span> =&gt; [
+    <span class="hljs-comment">// ... other components</span>
+    <span class="hljs-string">'authManager'</span> =&gt; [
+        <span class="hljs-string">'class'</span> =&gt; <span class="hljs-string">'yii\rbac\DbManager'</span>,
+    ],
+    <span class="hljs-comment">// ... other components</span>
+],
+</code></pre>
+
+<p class="text-justify">After setting up the <code>authManager</code> we can now run RBAC migration:</p>
+
+<pre><code class="hljs nginx"><span class="hljs-title">php</span> yii migrate --migrationPath=<span class="hljs-variable">@yii</span>/rbac/migrations
+</code></pre>
+
+<p class="text-justify">This migration will create following tables:<br>
+1. <strong>itemTable</strong>: the table for storing authorization items. Defaults to <code>auth_item</code>.<br>
+2. <strong>itemChildTable</strong>: the table for storing authorization item hierarchy. Defaults to <code>auth_item_child</code>.<br>
+3. <strong>assignmentTable</strong>: the table for storing authorization item assignments. Defaults to <code>auth_assignment</code>.<br>
+4. <strong>ruleTable</strong>: the table for storing rules. Defaults to <code>auth_rule</code>.</p>
+
+<p class="text-justify">If your migration was successful you should see:
+<img class="img-responsive img-rounded center-block" src="Episode.2_files/4.png" alt="RBAC migration" title="RBAC migration"></p>
+
+<p class="text-justify">The <code>authManager</code> can now be accessed via <code>Yii::$app-&gt;authManager</code>.
+ We will set up our roles, permissions and rules in the next episode 
+focused specially to RBAC. We have only created necessary RBAC tables 
+with built in migrations for now.</p>
+
+<p class="text-justify">Now check your database, you should have these 10 tables: <code>auth_assignment</code>, <code>auth_item</code>, <code>auth_item_child</code>, <code>auth_rule</code>, <code>category</code>, <code>migration</code>, <code>post</code>, <code>post_tag</code>, <code>tag</code> and <code>user</code>.</p>
+
+<p class="text-justify">Perfect, we are done for this episode! We have 
+successfully learned how to create an apply database migrations. We have
+ also run migration for Yii <code>authManager</code> component. We will use <code>authManager</code> to provide Role-Baces Access Control in the next episode.</p>
+
+<p class="text-justify">We will continue building our blog in next 
+episode. If do you have any questions regarding to this episode, please 
+write them below to the comments section.</p>
+
+<p class="text-justify">Download files from this episode: <a target="_blank" href="https://www.my-yii.com/uploads/learn/blog/episode_02.zip">episode_02.zip</a>.</p>
+
+<div class="footnotes">
+<hr>
+<ol>
+
+<li id="fn:1">
+<p class="text-justify"><a target="_blank" href="http://www.yiiframework.com/doc-2.0/guide-db-migrations.html#database-migration">Yii Official Guide: Database Migration</a>&nbsp;<a target="_blank" href="#fnref:1" class="footnote-backref">↩︎</a></p>
+</li>
+
+<li id="fn:3">
+<p class="text-justify"><code>&lt;YYMMDD_HHMMSS&gt;</code> refers to the UTC datetime at which the migration creation command is executed.&nbsp;<a target="_blank" href="#fnref:3" class="footnote-backref">↩︎</a></p>
+</li>
+
+<li id="fn:4">
+<p class="text-justify"><a target="_blank" href="http://www.yiiframework.com/doc-2.0/guide-db-migrations.html#creating-migrations">Official Migrations Documentation</a>&nbsp;<a target="_blank" href="#fnref:4" class="footnote-backref">↩︎</a></p>
+</li>
+
+<li id="fn:2">
+<p class="text-justify"><a target="_blank" href="http://www.yiiframework.com/doc-2.0/guide-security-authorization.html#rbac">Official RBAC documentation</a>&nbsp;<a target="_blank" href="#fnref:2" class="footnote-backref">↩︎</a></p>
+</li>
+
+</ol>
+</div>
+                                    </div>
+
+                <div class="panel-footer">
+                    <span class="glyphicon glyphicon-user"></span> Jaroslav Pulik                    <div class="pull-right">
+                        <span class="glyphicon glyphicon-calendar"></span> Created: Sep 26, 2015                        <span class="glyphicon glyphicon-calendar"></span> Last updated: May 25, 2016                    </div>
+                </div>
+
+            </div>
+
+            
+<div class="btn-group btn-group-justified btn-group-md" role="group" aria-label="Episodes navigation">
+                    <a class="btn" href="https://www.my-yii.com/learn/view-episode/episode-1-installing-and-setting-up-your-blog"><span class="glyphicon glyphicon-step-backward"></span> Episode 1 - Installing and set...</a>                        <a class="btn" href="https://www.my-yii.com/learn/view-episode/episode-3-setting-up-the-role-based-access-control-for-our-blog">Episode 3 - Setting up the Rol... <span class="glyphicon glyphicon-step-forward"></span></a>    </div>
+            <hr>
+
+                            <!-- Comments section -->
+                <div class="comment-index">
+    <div id="p0" data-pjax-container="" data-pjax-push-state="" data-pjax-timeout="1000">    
+    
+<div class="comment-form">
+
+    
+        <div class="alert alert-warning">
+            <p class="text-center">
+                You have to log in before you can post new comments
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                
+<p class="lead">Log in</p>
+
+<form id="login-form" action="/site/login" method="post" role="form">
+<input name="_csrf" value="Z0EtaXJVT2hVLX4QOWB4LhYOHD4QZA1RIAAbGDsZPVAxNRkdIy0.Hw==" type="hidden">
+<div class="form-group field-loginform-email required">
+
+<input id="loginform-email" class="form-control" name="LoginForm[email]" placeholder="Email" aria-required="true" type="text">
+
+<p class="help-block help-block-error"></p>
+</div>
+<div class="form-group field-loginform-password required">
+
+<input id="loginform-password" class="form-control" name="LoginForm[password]" placeholder="Password" aria-required="true" type="password">
+
+<p class="help-block help-block-error"></p>
+</div>
+<div class="form-group field-loginform-rememberme">
+<div class="checkbox">
+<label for="loginform-rememberme">
+<input name="LoginForm[rememberMe]" value="0" type="hidden"><input id="loginform-rememberme" name="LoginForm[rememberMe]" value="1" checked="checked" type="checkbox">
+Remember Me
+</label>
+<p class="help-block help-block-error"></p>
+
+</div>
+</div>
+    <div style="color:#999;margin:1em 0">
+        If you forgot your password you can <a href="https://www.my-yii.com/site/request-password-reset">reset it</a>.
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block" name="login-button">Login</button>    </div>
+
+</form>
+<hr>
+
+<p class="text-center">
+    Log in with
+    <a href="https://www.my-yii.com/site/auth?authclient=facebook">
+        <img src="Episode.2_files/facebook.png" alt="Facebook logo"> Facebook
+    </a>
+    or
+    <a href="https://www.my-yii.com/site/auth?authclient=github">
+        <img src="Episode.2_files/github.png" alt="GitHub logo"> Github
+    </a>
+</p>
+            </div>
+            <div class="col-md-6">
+                
+<p class="lead">Register</p>
+
+<form id="form-signup" action="/site/signup" method="post" role="form">
+<input name="_csrf" value="Z0EtaXJVT2hVLX4QOWB4LhYOHD4QZA1RIAAbGDsZPVAxNRkdIy0.Hw==" type="hidden">
+<div class="form-group field-signupform-username required">
+
+<input id="signupform-username" class="form-control" name="SignupForm[username]" placeholder="Username" aria-required="true" type="text">
+
+<p class="help-block help-block-error"></p>
+</div>
+<div class="form-group field-signupform-email">
+
+<input id="signupform-email" class="form-control" name="SignupForm[email]" placeholder="Email" type="text">
+
+<p class="help-block help-block-error"></p>
+</div>
+<div class="form-group field-signupform-password">
+
+<input id="signupform-password" class="form-control" name="SignupForm[password]" placeholder="Password" type="password">
+
+<p class="help-block help-block-error"></p>
+</div>
+<div class="form-group field-signupform-agreewithrules required">
+<div class="checkbox">
+<label for="signupform-agreewithrules">
+<input name="SignupForm[agreeWithRules]" value="0" type="hidden"><input id="signupform-agreewithrules" name="SignupForm[agreeWithRules]" value="1" type="checkbox">
+
+<button type="button" class="btn-link" data-toggle="modal" data-target="#w0">I have read and agree with the My-Yii rules</button>
+<div id="w0" class="fade modal" role="dialog" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+My-Yii.com rules
+</div>
+<div class="modal-body">
+
+<p class="text-justify">
+    Registration to this website is free! We do insist that you abide by the rules and policies detailed below.
+</p>
+
+<p class="text-justify">
+    Although the administrators and moderators of My-Yii.com will 
+attempt to keep all objectionable messages off this site, it is 
+impossible for us to review all messages.
+    All messages express the views of the author, and neither the owners
+ of My-Yii.com will be held responsible for the content of any message.
+</p>
+
+<p class="text-justify">
+    By agreeing to these rules, you warrant that you will not post any 
+messages that are obscene, vulgar, sexually-oriented, hateful, 
+threatening, or otherwise violative of any laws.
+</p>
+
+<p class="text-justify">
+    The owners of My-Yii.com reserve the right to remove, edit, move or close any content item for any reason.
+</p>
+
+<p class="text-justify">
+    The information contained in this website is for general information
+ purposes only.
+    The information is provided by My-Yii.com and while we endeavour to 
+keep the information up to date and correct,
+    we make no representations or warranties of any kind, express or 
+implied, about the completeness, accuracy, reliability, suitability
+    or availability with respect to the website or the information, 
+products, services, or related graphics contained on the website for any
+ purpose.
+    Any reliance you place on such information is therefore strictly at 
+your own risk.
+</p>
+
+<p class="text-justify">
+    In no event will we be liable for any loss or damage including 
+without limitation,
+    indirect or consequential loss or damage, or any loss or damage 
+whatsoever arising from loss of data or profits arising out of,
+    or in connection with, the use of this website.
+</p>
+
+<p class="text-justify">
+    Through this website you are able to link to other websites which are not under the control of My-Yii.com.
+    We have no control over the nature, content and availability of those sites.
+    The inclusion of any links does not necessarily imply a recommendation or endorse the views expressed within them.
+</p>
+
+<p class="text-justify">
+    Every effort is made to keep the website up and running smoothly.
+    However, My-Yii.com takes no responsibility for, and will not be 
+liable for, the website being temporarily unavailable due to technical 
+issues beyond our control.
+</p>
+<p class="text-justify">
+    If you agree to the terms, please check the 'I agree' checkbox and press the 'Signup' button below.
+    If you would like to cancel the registration, click <a href="https://www.my-yii.com/">here</a> to return to the site index.
+</p>
+
+
+</div>
+
+</div>
+</div>
+</div>
+</label>
+<p class="help-block help-block-error"></p>
+
+</div>
+</div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block" name="signup-button">Register</button>    </div>
+
+</form>
+<hr>
+
+<p class="text-center">
+    Sign up with
+    <a href="https://www.my-yii.com/site/auth?authclient=facebook">
+        <img src="Episode.2_files/facebook.png" alt="Facebook logo"> Facebook
+    </a>
+    or
+    <a href="https://www.my-yii.com/site/auth?authclient=github">
+        <img src="Episode.2_files/github.png" alt="GitHub logo"> Github
+    </a>
+</p>
+            </div>
+        </div>
+
+    
+</div>
+
+    <div id="w1" class="list-view"><p>Showing <b>1-4</b> of <b>4</b> items.</p>
+<div class="item" data-key="59"><div class="comment">
+    <div class="panel panel-info">
+        <div class="panel-body">
+            <div class="media">
+                <div class="media-left">
+                    <img class="media-object img-thumbnail center-block" src="Episode.2_files/1440113828.png" alt="Jaroslav Pulik profile picture" width="55px">
+                    <p class="text-center">
+                        Jaroslav Pulik                    </p>
+                </div>
+                <div class="media-body">
+                    <blockquote>
+                        <p class="text-justify">Hello @maxnb.</p>
+
+<p class="text-justify">Do you follow exactly my instructions in this 
+and previous episode and everything was working? I think that you did’nt
+ configure db connection properly. Another possible option is that you 
+are editing wrong configuration file, please make sure that you have 
+edit <code>common/config/main.php</code>.</p>
+
+<p class="text-justify">Please try these hints and let me know.
+Jaro.</p>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <span class="glyphicon glyphicon-user"></span> Jaroslav Pulik            <span class="pull-right">
+                <span class="glyphicon glyphicon-calendar"></span> Created: May 25, 2016, 7:22:47 PM                                            </span>
+        </div>
+    </div>
+</div>
+</div>
+<div class="item" data-key="55"><div class="comment">
+    <div class="panel panel-info">
+        <div class="panel-body">
+            <div class="media">
+                <div class="media-left">
+                    <img class="media-object img-thumbnail center-block" src="Episode.2_files/default-avatar.png" alt="maxnb profile picture" width="55px">
+                    <p class="text-center">
+                        maxnb                    </p>
+                </div>
+                <div class="media-body">
+                    <blockquote>
+                        <p class="text-justify">I get an error when running migration:</p>
+
+<p class="text-justify">C:\xampp\htdocs\blog&gt;php yii migrate –migrationPath=@yii/rbac/migrations
+Exception ‘yii\base\InvalidCallException’ with message ‘Setting read-only property: yii\console\Application::authManager’</p>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <span class="glyphicon glyphicon-user"></span> maxnb            <span class="pull-right">
+                <span class="glyphicon glyphicon-calendar"></span> Created: Apr 29, 2016, 3:32:54 PM                                            </span>
+        </div>
+    </div>
+</div>
+</div>
+<div class="item" data-key="39"><div class="comment">
+    <div class="panel panel-info">
+        <div class="panel-body">
+            <div class="media">
+                <div class="media-left">
+                    <img class="media-object img-thumbnail center-block" src="Episode.2_files/1440113828.png" alt="Jaroslav Pulik profile picture" width="55px">
+                    <p class="text-center">
+                        Jaroslav Pulik                    </p>
+                </div>
+                <div class="media-body">
+                    <blockquote>
+                        <p class="text-justify">Thank you dignityinside! :-)</p>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <span class="glyphicon glyphicon-user"></span> Jaroslav Pulik            <span class="pull-right">
+                <span class="glyphicon glyphicon-calendar"></span> Created: Nov 6, 2015, 2:44:43 PM                                            </span>
+        </div>
+    </div>
+</div>
+</div>
+<div class="item" data-key="30"><div class="comment">
+    <div class="panel panel-info">
+        <div class="panel-body">
+            <div class="media">
+                <div class="media-left">
+                    <img class="media-object img-thumbnail center-block" src="Episode.2_files/default-avatar.png" alt="dignityinside profile picture" width="55px">
+                    <p class="text-center">
+                        dignityinside                    </p>
+                </div>
+                <div class="media-body">
+                    <blockquote>
+                        <p class="text-justify">So easy to work with migration, i’m very happy :)</p>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <span class="glyphicon glyphicon-user"></span> dignityinside            <span class="pull-right">
+                <span class="glyphicon glyphicon-calendar"></span> Created: Nov 4, 2015, 10:05:41 PM                                            </span>
+        </div>
+    </div>
+</div>
+</div>
+</div>    </div></div>
+            
+        </div>
+
+        <div class="col-md-3">
+
+            
+<div class="">
+    <div class="panel">
+        <a href="https://www.my-yii.com/learn/view-episode/episode-2-creating-post-category-tag-posttag-and-rbac-tables">
+            <img class="img-rounded img-responsive center-block" src="Episode.2_files/1443728082.png" alt="Episode 2 - Creating Post, Category, Tag, PostTag and RBAC tables Image">
+        </a>
+        <div class="panel-body">
+            <h1>
+                <a href="https://www.my-yii.com/learn/view-episode/episode-2-creating-post-category-tag-posttag-and-rbac-tables">
+                    Episode 2 - Creating Post, Category, Tag, PostTag and RBAC tables                </a>
+            </h1>
+        <p>
+            </p><p class="text-justify">
+Setting up the <strong>authManager component</strong> and running <strong>RBAC migrations</strong>.
+<strong>Creating and applying own</strong> tag, category and post <strong>migrations</strong>.
+</p>        <p></p>
+    </div>
+    <div class="panel-footer text-center">
+
+        <div class="btn-group btn-group-sm">
+                            <a class="btn btn-primary" href="https://www.my-yii.com/learn/view-episode/episode-2-creating-post-category-tag-posttag-and-rbac-tables"><span class="glyphicon glyphicon-heart-empty"></span> Free</a>                        <button class="btn btn-default">
+                <span class="glyphicon glyphicon-comment"></span> 4            </button>
+                    </div>
+
+    </div>
+</div>
+</div>
+
+            <h5 class=" text-center">
+    <strong>My-Yii</strong> is powered by
+    <a href="https://my.hawkhost.com/aff.php?aff=8510" target="_blank">
+        Hawk Host
+    </a>
+</h5>
+
+<a href="https://my.hawkhost.com/aff.php?aff=8510" target="_blank">
+    <img src="Episode.2_files/img-logo.htm" class="responsive center-block" alt="HowkHost banner">
+</a>
+        </div>
+
+    </div>
+
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-5">
+                <div class="well well-sm">
+                    <br>
+                    <p class="text-center lead">
+                        Like us on
+                        <a href="https://www.facebook.com/myyiicom" target="_blank">
+                            <img src="Episode.2_files/facebook.png" alt="Facebook logo" width="26px"> Facebook
+                        </a>
+                    </p>
+                    <p class="text-center lead">
+                        Follow us on
+                        <a href="https://twitter.com/myyiicom" target="_blank">
+                            <img src="Episode.2_files/twitter.png" alt="Facebook logo"> Twitter
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <div class="well well-sm text-center">
+                    <p>
+                        If do you want to support my work and help me maintain this site, you can donate me at any value.
+                        Thank you! <span class="glyphicon glyphicon-heart"></span>
+                    </p>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input name="cmd" value="_s-xclick" type="hidden">
+                        <input name="hosted_button_id" value="65WR2372YW4FS" type="hidden">
+                        <input src="Episode.2_files/btn_donateCC_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!" type="image" border="0">
+                        <img alt="Paypal donate button" src="Episode.2_files/pixel.gif" style="display: none !important;" width="1" hidden="" height="1" border="0">
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-3">
+                <div class="nav-footer-container">
+                    <ul id="w6" class="nav nav-pills nav-stacked nav-footer"><li><a href="https://www.my-yii.com/site/about">About</a></li>
+<li><a href="https://www.my-yii.com/site/terms-of-use">Terms of use</a></li>
+<li><a href="https://www.my-yii.com/site/privacy-policy">Privacy policy</a></li></ul>                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p class="text-center small">
+                Copyright © 2017 My Yii. All rights reserved.
+            </p>
+        </div>
+    </div>
+</footer>
+<script async="" src="Episode.2_files/analytics.js"></script><script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-66666967-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+<script src="Episode.2_files/all-5b77ff492b574ba03b3758a7bd2e7f78.js"></script>
+<script src="Episode.2_files/yii.js"></script>
+<script src="Episode.2_files/yii_002.js"></script>
+<script src="Episode.2_files/bootstrap.js"></script>
+<script src="Episode.2_files/jquery.js"></script>
+<script type="text/javascript">jQuery(document).ready(function () {
+jQuery('#login-form').yiiActiveForm([{"id":"loginform-email","name":"email","container":".field-loginform-email","input":"#loginform-email","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Email cannot be blank."});yii.validation.email(value, messages, {"pattern":/^[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/,"fullPattern":/^[^@]*<[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?>$/,"allowName":false,"message":"Email is not a valid email address.","enableIDN":false,"skipOnEmpty":1});}},{"id":"loginform-password","name":"password","container":".field-loginform-password","input":"#loginform-password","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Password cannot be blank."});}},{"id":"loginform-rememberme","name":"rememberMe","container":".field-loginform-rememberme","input":"#loginform-rememberme","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.boolean(value, messages, {"trueValue":"1","falseValue":"0","message":"Remember Me must be either \"1\" or \"0\".","skipOnEmpty":1});}}], []);
+jQuery('#w0').modal({"show":false});
+jQuery('#form-signup').yiiActiveForm([{"id":"signupform-username","name":"username","container":".field-signupform-username","input":"#signupform-username","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {value = yii.validation.trim($form, attribute, []);yii.validation.required(value, messages, {"message":"Username cannot be blank."});yii.validation.string(value, messages, {"message":"Username must be a string.","min":2,"tooShort":"Username should contain at least 2 characters.","max":255,"tooLong":"Username should contain at most 255 characters.","skipOnEmpty":1});}},{"id":"signupform-email","name":"email","container":".field-signupform-email","input":"#signupform-email","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {value = yii.validation.trim($form, attribute, []);yii.validation.email(value, messages, {"pattern":/^[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/,"fullPattern":/^[^@]*<[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?>$/,"allowName":false,"message":"Email is not a valid email address.","enableIDN":false,"skipOnEmpty":1});yii.validation.string(value, messages, {"message":"Email must be a string.","max":255,"tooLong":"Email should contain at most 255 characters.","skipOnEmpty":1});}},{"id":"signupform-password","name":"password","container":".field-signupform-password","input":"#signupform-password","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.string(value, messages, {"message":"Password must be a string.","min":6,"tooShort":"Password should contain at least 6 characters.","skipOnEmpty":1});}},{"id":"signupform-agreewithrules","name":"agreeWithRules","container":".field-signupform-agreewithrules","input":"#signupform-agreewithrules","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"You must accept forum rules to continue in registration.","requiredValue":1});}}], []);
+jQuery(document).pjax("#p0 a", {"push":true,"replace":false,"timeout":1000,"scrollTo":false,"container":"#p0"});
+jQuery(document).on("submit", "#p0 form[data-pjax]", function (event) {jQuery.pjax.submit(event, {"push":true,"replace":false,"timeout":1000,"scrollTo":false,"container":"#p0"});});
+});</script>
+
+</body></html>

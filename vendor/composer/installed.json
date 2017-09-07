@@ -3994,68 +3994,6 @@
         ]
     },
     {
-        "name": "dmstr/yii2-adminlte-asset",
-        "version": "2.4.2",
-        "version_normalized": "2.4.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/dmstr/yii2-adminlte-asset.git",
-            "reference": "b339611f9f34621d731d3feca3a83b42720c7d5c"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/dmstr/yii2-adminlte-asset/zipball/b339611f9f34621d731d3feca3a83b42720c7d5c",
-            "reference": "b339611f9f34621d731d3feca3a83b42720c7d5c",
-            "shasum": ""
-        },
-        "require": {
-            "almasaeed2010/adminlte": "~2.0",
-            "cebe/yii2-gravatar": "1.*",
-            "rmrevin/yii2-fontawesome": "~2.9",
-            "yiisoft/yii2": "2.*",
-            "yiisoft/yii2-bootstrap": "2.*"
-        },
-        "time": "2017-03-30T09:04:16+00:00",
-        "type": "yii2-extension",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.0.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "dmstr\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Tobias Munk",
-                "email": "tobias@diemeisterei.de"
-            },
-            {
-                "name": "Evgeniy Tkachenko",
-                "email": "et.coder@gmail.com"
-            }
-        ],
-        "description": "AdminLTE backend theme asset bundle for Yii 2.0 Framework",
-        "keywords": [
-            "AdminLTE",
-            "admin",
-            "asset",
-            "backend",
-            "css",
-            "extension",
-            "less",
-            "theme",
-            "yii2"
-        ]
-    },
-    {
         "name": "dixonsatit/yii2-agency-theme",
         "version": "1.0.2",
         "version_normalized": "1.0.2.0",
@@ -4095,6 +4033,68 @@
         "description": "Yii 2 Agency Theme Asset Bundle",
         "keywords": [
             "extension",
+            "yii2"
+        ]
+    },
+    {
+        "name": "dmstr/yii2-adminlte-asset",
+        "version": "2.4.3",
+        "version_normalized": "2.4.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/dmstr/yii2-adminlte-asset.git",
+            "reference": "2cff40e951c47d02667617833465e09abdac45da"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/dmstr/yii2-adminlte-asset/zipball/2cff40e951c47d02667617833465e09abdac45da",
+            "reference": "2cff40e951c47d02667617833465e09abdac45da",
+            "shasum": ""
+        },
+        "require": {
+            "almasaeed2010/adminlte": "~2.0",
+            "cebe/yii2-gravatar": "1.*",
+            "rmrevin/yii2-fontawesome": "~2.9",
+            "yiisoft/yii2": "2.*",
+            "yiisoft/yii2-bootstrap": "~2.0.0"
+        },
+        "time": "2017-08-31T16:21:44+00:00",
+        "type": "yii2-extension",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "dmstr\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Tobias Munk",
+                "email": "tobias@diemeisterei.de"
+            },
+            {
+                "name": "Evgeniy Tkachenko",
+                "email": "et.coder@gmail.com"
+            }
+        ],
+        "description": "AdminLTE backend theme asset bundle for Yii 2.0 Framework",
+        "keywords": [
+            "AdminLTE",
+            "admin",
+            "asset",
+            "backend",
+            "css",
+            "extension",
+            "less",
+            "theme",
             "yii2"
         ]
     }

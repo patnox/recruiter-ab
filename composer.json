@@ -23,7 +23,7 @@
         "kartik-v/yii2-grid": "@dev",
         "almasaeed2010/adminlte": "~2.4.0-rc",
         "bower-asset/admin-lte": "*",
-        "dmstr/yii2-adminlte-asset": "*",
+        "dmstr/yii2-adminlte-asset": "2.*",
         "dixonsatit/yii2-agency-theme": "^1.0"
     },
     "require-dev": {

@@ -102,15 +102,6 @@ return array (
       '@cebe/gravatar' => $vendorDir . '/cebe/yii2-gravatar/cebe/gravatar',
     ),
   ),
-  'dmstr/yii2-adminlte-asset' => 
-  array (
-    'name' => 'dmstr/yii2-adminlte-asset',
-    'version' => '2.4.2.0',
-    'alias' => 
-    array (
-      '@dmstr' => $vendorDir . '/dmstr/yii2-adminlte-asset',
-    ),
-  ),
   'dixonsatit/yii2-agency-theme' => 
   array (
     'name' => 'dixonsatit/yii2-agency-theme',
@@ -118,6 +109,15 @@ return array (
     'alias' => 
     array (
       '@dixonsatit/agencyTheme' => $vendorDir . '/dixonsatit/yii2-agency-theme',
+    ),
+  ),
+  'dmstr/yii2-adminlte-asset' => 
+  array (
+    'name' => 'dmstr/yii2-adminlte-asset',
+    'version' => '2.4.3.0',
+    'alias' => 
+    array (
+      '@dmstr' => $vendorDir . '/dmstr/yii2-adminlte-asset',
     ),
   ),
 );
