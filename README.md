@@ -74,6 +74,7 @@ frontend
     widgets/             contains frontend widgets
 vendor/                  contains dependent 3rd-party packages
 environments/            contains environment-based overrides
+database/				 database backup
 
 ```
 
@@ -160,6 +161,14 @@ server {
 When using this configuration, you should also set cgi.fix_pathinfo=0 in the php.ini file in order to avoid many unnecessary system stat() calls.
 
 Also note that when running an HTTPS server, you need to add fastcgi_param HTTPS on; so that Yii can properly detect if a connection is secure.
+
+6. Database
+
+a. create a mysql database
+b. import the latest .sql file from the directory database/ into your mysql database
+c. change the database configuration at common/config/main-local.php
+
+7. Happy Recruiting
 
 ```
 
